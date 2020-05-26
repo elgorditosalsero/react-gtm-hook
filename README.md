@@ -29,7 +29,7 @@ $ npm install react-gtm-hook
 
 ```typescript jsx
 import { useEffect } from 'react'
-import useGTM from 'react-gtm-hook'
+import useGTM from '@elgorditosalsero/react-gtm-hook'
 
 const App = () => {
   const { init } = useGTM()
@@ -44,7 +44,7 @@ const App = () => {
 
 ```typescript jsx
 import { useEffect } from 'react'
-import useGTM from 'react-gtm-hook'
+import useGTM from '@elgorditosalsero/react-gtm-hook'
 
 const App = () => {
   const { init } = useGTM()
@@ -63,7 +63,7 @@ const App = () => {
 
 ```typescript jsx
 import { useEffect } from 'react'
-import useGTM from 'react-gtm-hook'
+import useGTM from '@elgorditosalsero/react-gtm-hook'
 
 const App = () => {
   const { init } = useGTM()
@@ -86,7 +86,7 @@ const App = () => {
 
 ```typescript jsx
 import { useEffect } from 'react'
-import useGTM from 'react-gtm-hook'
+import useGTM from '@elgorditosalsero/react-gtm-hook'
 
 const App = () => {
   const { init } = useGTM()
