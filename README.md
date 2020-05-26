@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="react-gtm-hook.png" alt="React Google Tag Manager Hook" />
+  <img src="https://user-images.githubusercontent.com/65770455/82931604-76c14380-9f87-11ea-8d36-4ab2bc94b1d3.png" alt="React Google Tag Manager Hook" />
 </p>
 
 # React Goole Tag Manager Hook
@@ -144,7 +144,9 @@ const MyAwesomeComp = () => {
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -160,6 +162,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!

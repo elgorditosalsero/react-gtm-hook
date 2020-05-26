@@ -1,7 +1,9 @@
 {
   "name": "@elgorditosalsero/react-gtm-hook",
   "author": "Guido Porcaro",
-  "version": "1.0.3",
+  "repository": "https://github.com/elgorditosalsero/react-gtm-hook",
+  "homepage": "https://github.com/elgorditosalsero/react-gtm-hook#readme",
+  "version": "1.0.4",
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/react-gtm-hook.esm.js",
