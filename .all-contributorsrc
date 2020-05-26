@@ -1,0 +1,25 @@
+{
+  "projectName": "react-gtm-hook",
+  "projectOwner": "elgorditosalsero",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "commitConvention": "none",
+  "contributors": [
+    {
+      "login": "elgorditosalsero",
+      "name": "Guido Porcaro",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/65770455?v=4",
+      "profile": "https://www.linkedin.com/in/guidoporcaro/",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7
+}

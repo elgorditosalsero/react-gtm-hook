@@ -1,7 +1,7 @@
 {
   "name": "react-gtm-hook",
   "author": "Guido Porcaro",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/react-gtm-hook.esm.js",
@@ -54,6 +54,7 @@
     "@testing-library/react-hooks": "^3.2.1",
     "@types/react": "^16.9.35",
     "@types/react-dom": "^16.9.8",
+    "all-contributors-cli": "^6.15.0",
     "babel-plugin-module-resolver": "^4.0.0",
     "husky": "^4.2.5",
     "react": "^16.13.1",
