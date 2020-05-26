@@ -3,7 +3,7 @@
   "author": "Guido Porcaro",
   "repository": "https://github.com/elgorditosalsero/react-gtm-hook",
   "homepage": "https://github.com/elgorditosalsero/react-gtm-hook#readme",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/react-gtm-hook.esm.js",
