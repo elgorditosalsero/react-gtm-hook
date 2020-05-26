@@ -3,6 +3,14 @@
   "author": "Guido Porcaro",
   "repository": "https://github.com/elgorditosalsero/react-gtm-hook",
   "homepage": "https://github.com/elgorditosalsero/react-gtm-hook#readme",
+  "keywords": [
+    "react hook",
+    "google tag manager",
+    "gtm",
+    "gtm hook",
+    "react"
+  ],
+  "description": "Easily manage the Google Tag Manager via Hook",
   "version": "1.0.5",
   "license": "MIT",
   "main": "dist/index.js",
@@ -68,9 +76,5 @@
       "node_modules",
       "src"
     ]
-  },
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org"
   }
 }

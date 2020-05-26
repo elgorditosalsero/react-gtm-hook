@@ -18,9 +18,9 @@ With this custom hook, you can easily use the Google Tag Manager with 0 config, 
 ## Installation
 
 ```bash
-$ yarn add react-gtm-hook
-
-$ npm install react-gtm-hook
+$ yarn add @elgorditosalsero/react-gtm-hook
+# or
+$ npm install @elgorditosalsero/react-gtm-hook
 ```
 
 ## How to use
