@@ -1,0 +1,69 @@
+{
+  "name": "react-gtm-hook",
+  "author": "Guido Porcaro",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "module": "dist/react-gtm-hook.esm.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "dev": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test --env=jsdom",
+    "test:watch": "tsdx test --env=jsdom --watch",
+    "lint": "tsdx lint src test",
+    "prepare": "tsdx build"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint src test"
+    }
+  },
+  "prettier": {
+    "printWidth": 120,
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "none"
+  },
+  "jest": {
+    "globals": {
+      "ts-jest": {
+        "diagnostics": {
+          "ignoreCodes": [
+            7015
+          ]
+        },
+        "tsConfig": "tsconfig.test.json"
+      }
+    },
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@testing-library/react": "^10.0.4",
+    "@testing-library/react-hooks": "^3.2.1",
+    "@types/react": "^16.9.35",
+    "@types/react-dom": "^16.9.8",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "husky": "^4.2.5",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-test-renderer": "^16.13.1",
+    "tsdx": "^0.13.2",
+    "tslib": "^2.0.0",
+    "typescript": "^3.9.3"
+  },
+  "peerDependencies": {
+    "react": ">=16"
+  }
+}
