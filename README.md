@@ -2,7 +2,7 @@
   <img src="https://user-images.githubusercontent.com/65770455/82931604-76c14380-9f87-11ea-8d36-4ab2bc94b1d3.png" alt="React Google Tag Manager Hook" />
 </p>
 
-# React Goole Tag Manager Hook
+# React Google Tag Manager Hook
 
 #### Use easily the Google Tag Manager
 
