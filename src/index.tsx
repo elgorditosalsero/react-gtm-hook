@@ -22,22 +22,13 @@ export type IUseGTM = {
  * The Google Tag Manager Hook
  */
 export default function useGTM(): IUseGTM {
-  const initialState: ISnippetsParams = {
+  const [dataLayerState, setDataLayerState] = useState<ISnippetsParams>({
     dataLayer: undefined,
     dataLayerName: 'dataLayer',
     id: ''
-  }
+  })
 
-  const [dataLayerState, setDataLayerState] = useState<ISnippetsParams>(initialState)
-
-  const init = useCallback(
-    ({
-      dataLayer = initialState.dataLayer,
-      dataLayerName = initialState.dataLayerName,
-      id = initialState.id
-    }: ISnippetsParams): void => setDataLayerState({ dataLayer, dataLayerName, id }),
-    [initialState]
-  )
+  const init = useCallback((snippetParams: ISnippetsParams): void => setDataLayerState(snippetParams), [])
 
   const sendDataToGTM = useCallback(
     (data: Object): void => sendToGTM({ data, dataLayerName: dataLayerState.dataLayerName! }),
