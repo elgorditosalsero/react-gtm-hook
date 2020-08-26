@@ -6,9 +6,15 @@
   "scripts": {
     "dev": "parcel index.html",
     "build": "parcel build index.html",
-    "serve": "ws -d dist -o"
+    "serve": "ws -d dist -o",
+    "lint": "eslint . --ext .tsx"
   },
   "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^3.9.0",
+    "@typescript-eslint/parser": "^3.9.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react-hooks": "^4.0.8",
     "react-app-polyfill": "^1.0.0"
   },
   "alias": {

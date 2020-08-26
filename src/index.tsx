@@ -28,14 +28,7 @@ export default function useGTM(): IUseGTM {
     id: ''
   })
 
-  const init = useCallback(
-    ({
-      dataLayer = dataLayerState.dataLayer,
-      dataLayerName = dataLayerState.dataLayerName,
-      id
-    }: ISnippetsParams): void => setDataLayerState({ dataLayer, dataLayerName, id }),
-    [dataLayerState]
-  )
+  const init = useCallback((snippetParams: ISnippetsParams): void => setDataLayerState(snippetParams), [])
 
   const sendDataToGTM = useCallback(
     (data: Object): void => sendToGTM({ data, dataLayerName: dataLayerState.dataLayerName! }),
