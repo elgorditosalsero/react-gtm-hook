@@ -25,13 +25,16 @@ export default function useGTM(): IUseGTM {
   const [dataLayerState, setDataLayerState] = useState<ISnippetsParams>({
     dataLayer: undefined,
     dataLayerName: 'dataLayer',
+    environment: undefined,
     id: ''
   })
 
   const init = useCallback((snippetParams: ISnippetsParams): void => setDataLayerState(snippetParams), [])
 
   const sendDataToGTM = useCallback(
-    (data: Object): void => sendToGTM({ data, dataLayerName: dataLayerState.dataLayerName! }),
+    (data: Object): void => {
+      sendToGTM({ data, dataLayerName: dataLayerState.dataLayerName! })
+    },
     [dataLayerState]
   )
 
@@ -40,6 +43,7 @@ export default function useGTM(): IUseGTM {
       initGTM({
         dataLayer: dataLayerState.dataLayer,
         dataLayerName: dataLayerState.dataLayerName,
+        environment: dataLayerState.environment,
         id: dataLayerState.id
       })
     }

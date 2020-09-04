@@ -46,6 +46,29 @@ describe('Suite of snippets functions', () => {
 
       expect(gtmSnippet).toContain(`${customDataLayerName}`)
       expect(gtmSnippet).toContain(`${params.id}`)
+      expect(gtmSnippet).not.toContain('gtm_auth')
+      expect(gtmSnippet).not.toContain('gtm_preview')
+    })
+
+    it('should return the script with the default dataLayerName and custom environment auth', () => {
+      const customDataLayerName = 'custonDL'
+      params = {
+        ...params,
+        dataLayerName: customDataLayerName,
+        environment: {
+          gtm_auth: 'custom_environment_auth',
+          gtm_preview: 'custom_environment_preview'
+        }
+      }
+
+      const gtmSnippet = getGTMScript(params.dataLayerName, params.id, params.environment)
+
+      expect(gtmSnippet).toContain(`${customDataLayerName}`)
+      expect(gtmSnippet).toContain(`${params.id}`)
+      expect(gtmSnippet).toContain('gtm_auth')
+      expect(gtmSnippet).toContain('gtm_preview')
+      expect(gtmSnippet).toContain(params.environment!.gtm_auth)
+      expect(gtmSnippet).toContain(params.environment!.gtm_preview)
     })
   })
 
@@ -56,10 +79,30 @@ describe('Suite of snippets functions', () => {
       params = { id: 'GTM-iframe' }
     })
 
-    it('should return the iframe snippet with the passed it', () => {
+    it('should return the iframe snippet with the passed id', () => {
       const iframeSnippet = getIframeSnippet(params.id)
 
       expect(iframeSnippet).toContain(`${params.id}`)
+      expect(iframeSnippet).not.toContain('gtm_auth')
+      expect(iframeSnippet).not.toContain('gtm_preview')
+    })
+
+    it('should return the iframe snippet with the passed id and custom environment auth', () => {
+      params = {
+        ...params,
+        environment: {
+          gtm_auth: 'custom_environment_auth',
+          gtm_preview: 'custom_environment_preview'
+        }
+      }
+
+      const iframeSnippet = getIframeSnippet(params.id, params.environment)
+
+      expect(iframeSnippet).toContain(`${params.id}`)
+      expect(iframeSnippet).toContain('gtm_auth')
+      expect(iframeSnippet).toContain('gtm_preview')
+      expect(iframeSnippet).toContain(params.environment!.gtm_auth)
+      expect(iframeSnippet).toContain(params.environment!.gtm_preview)
     })
   })
 })
