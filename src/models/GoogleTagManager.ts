@@ -18,7 +18,7 @@ export type ISnippets = {
 /**
  * The variables required to use a GTM custom environment
  */
-export type ICustomEnvironment = {
+export type ICustomEnvironmentParams = {
   /**
    * For the `gtm_auth` parameter.
    */
@@ -36,7 +36,7 @@ export type ICustomEnvironment = {
 export type ISnippetsParams = {
   dataLayer?: Pick<IDataLayer, 'dataLayer'>['dataLayer']
   dataLayerName?: Pick<IDataLayer, 'dataLayerName'>['dataLayerName']
-  environment?: ICustomEnvironment
+  environment?: ICustomEnvironmentParams
   id: string
 }
 
