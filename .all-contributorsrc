@@ -19,6 +19,17 @@
         "code",
         "doc"
       ]
+    },
+    {
+      "login": "benyap",
+      "name": "Ben Yap",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/19235373?v=4",
+      "profile": "https://benyap.com",
+      "contributions": [
+        "code",
+        "doc",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7
