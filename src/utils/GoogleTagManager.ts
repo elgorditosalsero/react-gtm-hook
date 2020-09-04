@@ -50,8 +50,8 @@ export const initGTM = ({ dataLayer, dataLayerName, environment, id }: ISnippets
   const script = gtm.getScript()
   const noScript = gtm.getNoScript()
 
-  if (dataLayer) document.head.insertBefore(dataLayerScript, document.head.childNodes[0])
-  document.head.insertBefore(script, dataLayer ? document.head.childNodes[0].nextSibling : document.head.childNodes[0])
+  document.head.insertBefore(script, document.head.childNodes[0])
+  document.head.insertBefore(dataLayerScript, document.head.childNodes[0])
   document.body.insertBefore(noScript, document.body.childNodes[0])
 }
 

@@ -7,9 +7,9 @@ import { IDataLayer, ISnippets, ISnippetsParams } from 'models/GoogleTagManager'
  */
 export const getDataLayerSnippet = (
   dataLayer: Pick<IDataLayer, 'dataLayer'>['dataLayer'],
-  dataLayerName?: Pick<IDataLayer, 'dataLayerName'>['dataLayerName']
+  dataLayerName: Pick<IDataLayer, 'dataLayerName'>['dataLayerName'] = 'dataLayer'
 ): Pick<ISnippets, 'gtmDataLayer'>['gtmDataLayer'] =>
-  typeof dataLayer === 'undefined' ? 'dataLayer = []' : `${dataLayerName} = [${JSON.stringify(dataLayer)}]`
+  `${dataLayerName} = [${typeof dataLayer === 'undefined' ? '' : JSON.stringify(dataLayer)}]`
 
 /**
  * Function to get the Iframe snippet
