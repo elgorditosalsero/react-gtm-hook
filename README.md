@@ -82,6 +82,30 @@ const App = () => {
 }
 ```
 
+### Use a GTM custom environment
+
+```typescript jsx
+import { useEffect } from 'react'
+import useGTM from '@elgorditosalsero/react-gtm-hook'
+
+const App = () => {
+  const { init } = useGTM()
+  const gtmParams = {
+    id: 'GTM-ID',
+    environment: {
+      gtm_auth: 'my-auth-token',
+      gtm_preview: 'preview-id'
+    }
+  }
+
+  useEffect(() => init(gtmParams), [])
+
+  return <p>My awesome app</p>
+}
+```
+
+_To find the `gtm_auth` and `gtm_preview` values for your custom GTM environment, go to Admin > Your Container > Environments > Your Environment > Actions > Get Snippet in your Google Tag Manager console. You will find the values you need embedded in the snippet._
+
 ### Sending data to GTM
 
 ```typescript jsx
@@ -125,11 +149,12 @@ const MyAwesomeComp = () => {
 
 ### Init
 
-| Name          | Type     | Required | Info                                                                              |
-| ------------- | -------- | -------- | --------------------------------------------------------------------------------- |
-| id            | `String` | **YES**  | The container ID from the Tag Manager, it looks like: `GMT-0T0TTT`                |
-| dataLayer     | `Object` | **NO**   | Custom values for the dataLayer, like `{'my-init-prop': 'value'}`                 |
-| dataLayerName | `String` | **NO**   | Custom name for the dataLayer, if not passed, it will be the default: `dataLayer` |
+| Name          | Type     | Required | Info                                                                                |
+| ------------- | -------- | -------- | ----------------------------------------------------------------------------------- |
+| id            | `String` | **YES**  | The container ID from the Tag Manager, it looks like: `GMT-0T0TTT`                  |
+| dataLayer     | `Object` | **NO**   | Custom values for the dataLayer, like `{'my-init-prop': 'value'}`                   |
+| dataLayerName | `String` | **NO**   | Custom name for the dataLayer, if not passed, it will be the default: `dataLayer`   |
+| environment   | `Object` | **NO**   | Provide the `gtm_auth` and `gtm_preview` parameters to use a custom GTM environment |
 
 ### SentDataToGTM
 
@@ -145,7 +170,7 @@ const MyAwesomeComp = () => {
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
@@ -157,6 +182,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="https://www.linkedin.com/in/guidoporcaro/"><img src="https://avatars2.githubusercontent.com/u/65770455?v=4" width="100px;" alt=""/><br /><sub><b>Guido Porcaro</b></sub></a><br /><a href="https://github.com/elgorditosalsero/react-gtm-hook/commits?author=elgorditosalsero" title="Code">💻</a> <a href="https://github.com/elgorditosalsero/react-gtm-hook/commits?author=elgorditosalsero" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://benyap.com"><img src="https://avatars3.githubusercontent.com/u/19235373?v=4" width="100px;" alt=""/><br /><sub><b>Ben Yap</b></sub></a><br /><a href="https://github.com/elgorditosalsero/react-gtm-hook/commits?author=benyap" title="Code">💻</a> <a href="https://github.com/elgorditosalsero/react-gtm-hook/commits?author=benyap" title="Documentation">📖</a> <a href="https://github.com/elgorditosalsero/react-gtm-hook/commits?author=benyap" title="Tests">⚠️</a></td>
   </tr>
 </table>
 

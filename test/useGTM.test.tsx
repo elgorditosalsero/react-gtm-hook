@@ -5,19 +5,34 @@ import useGTM from '../src'
 import { ISnippetsParams } from '../src/models/GoogleTagManager'
 
 describe('Suite of useGTM Hook', () => {
-  it('should init the GTM with the ID passed', async () => {
+  it('data layer appears before GTM snippet', async () => {
+    const params: ISnippetsParams = { id: 'GTM-test' }
     const { result } = renderHook(() => useGTM())
 
-    await act(async () => await result.current.init({ id: 'GTM-test' }))
+    act(() => result.current.init({ ...params }))
 
-    expect(window.dataLayer).not.toBeUndefined()
+    const dataLayerNode = document.head.childNodes[0] as HTMLScriptElement
+    const gtmSnippetNode = document.head.childNodes[1] as HTMLScriptElement
+
+    expect(dataLayerNode?.textContent).toContain('dataLayer')
+    expect(gtmSnippetNode?.src).toContain('gtm')
+    expect(gtmSnippetNode?.src).toContain(params.id)
+  })
+
+  it('should init the GTM with the ID passed', async () => {
+    const params: ISnippetsParams = { id: 'GTM-test' }
+    const { result } = renderHook(() => useGTM())
+
+    act(() => result.current.init({ ...params }))
+
+    expect(window['dataLayer']).not.toBeUndefined()
   })
 
   it('should init the GTM with a custom data layer name', async () => {
     const params: ISnippetsParams = { id: 'GTM-test', dataLayerName: 'customDataLayerName' }
     const { result } = renderHook(() => useGTM())
 
-    await act(async () => await result.current.init({ ...params }))
+    act(() => result.current.init({ ...params }))
 
     expect(window['customDataLayerName']).not.toBeUndefined()
   })
@@ -33,7 +48,7 @@ describe('Suite of useGTM Hook', () => {
     }
     const { result } = renderHook(() => useGTM())
 
-    await act(async () => await result.current.init({ ...params }))
+    act(() => result.current.init({ ...params }))
 
     expect(window['myDataLayer']).not.toBeUndefined()
     expect(window['myDataLayer']).toContainEqual({ homepage: false, ecommerce: true })
@@ -49,7 +64,7 @@ describe('Suite of useGTM Hook', () => {
     }
     const { result } = renderHook(() => useGTM())
 
-    await act(async () => await result.current.init({ ...params }))
+    act(() => result.current.init({ ...params }))
 
     expect(window['awesomeDataLayer']).not.toBeUndefined()
     expect(window['awesomeDataLayer']).toContainEqual({ homepage: false })
@@ -58,17 +73,17 @@ describe('Suite of useGTM Hook', () => {
   it('should send the data to the GTM', async () => {
     const { result } = renderHook(() => useGTM())
 
-    await act(async () => await result.current.init({ id: 'GTM-test' }))
-    await act(async () => await result.current.sendDataToGTM({ event: 'works' }))
+    act(() => result.current.init({ id: 'GTM-test' }))
+    act(() => result.current.sendDataToGTM({ event: 'works' }))
 
-    expect(window.dataLayer).toContainEqual({ event: 'works' })
+    expect(window['dataLayer']).toContainEqual({ event: 'works' })
   })
 
   it('should send the data to the GTM with a custom dataLayer name', async () => {
     const { result } = renderHook(() => useGTM())
 
-    await act(async () => await result.current.init({ id: 'GTM-test', dataLayerName: 'customDL' }))
-    await act(async () => await result.current.sendDataToGTM({ event: 'works' }))
+    act(() => result.current.init({ id: 'GTM-test', dataLayerName: 'customDL' }))
+    act(() => result.current.sendDataToGTM({ event: 'works' }))
 
     expect(window['customDL']).toContainEqual({ event: 'works' })
   })
