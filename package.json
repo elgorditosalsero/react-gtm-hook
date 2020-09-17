@@ -11,7 +11,7 @@
     "react"
   ],
   "description": "Easily manage the Google Tag Manager via Hook",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/react-gtm-hook.esm.js",
@@ -38,6 +38,7 @@
     "@types/react": "^16.9.49",
     "@types/react-dom": "^16.9.8",
     "all-contributors-cli": "^6.17.2",
+    "babel-jest": "^26.3.0",
     "babel-plugin-module-resolver": "^4.0.0",
     "husky": "^4.3.0",
     "react": "^16.13.1",
@@ -48,7 +49,6 @@
     "typescript": "^4.0.2"
   },
   "peerDependencies": {
-    "babel-jest": "^26.3.0",
     "react": ">=16"
   },
   "husky": {
