@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import React, { Context, ReactNode, createContext, useCallback, useContext, useEffect, useState } from 'react'
 import { initGTM, sendToGTM } from 'utils/GoogleTagManager'
 
 import { ISnippetsParams } from 'models/GoogleTagManager'
@@ -11,23 +11,48 @@ declare global {
 }
 
 /**
+ * The shape of the context provider
+ */
+type GTMHookProviderProps = { state?: any; children: ReactNode }
+
+/**
  * The shape of the hook
  */
 export type IUseGTM = {
   init({ dataLayer, dataLayerName, id }: ISnippetsParams): void
   sendDataToGTM(data: Object): void
+  UseGTMHookProvider: ({ children }: GTMHookProviderProps) => JSX.Element
+  useGTMHookContext: Context<ISnippetsParams | undefined>
 }
+
+/**
+ * The initial state
+ */
+export const initialState: ISnippetsParams = {
+  dataLayer: undefined,
+  dataLayerName: 'dataLayer',
+  environment: undefined,
+  id: ''
+}
+
+/**
+ * The context
+ */
+const useGTMHookContext = createContext<ISnippetsParams | undefined>(initialState)
+
+/**
+ * A provider for testing purpose only
+ */
+export const TestingProvider = ({ state, children }: GTMHookProviderProps) => (
+  <useGTMHookContext.Provider value={state}>{children}</useGTMHookContext.Provider>
+)
 
 /**
  * The Google Tag Manager Hook
  */
 export default function useGTM(): IUseGTM {
-  const [dataLayerState, setDataLayerState] = useState<ISnippetsParams>({
-    dataLayer: undefined,
-    dataLayerName: 'dataLayer',
-    environment: undefined,
-    id: ''
-  })
+  const [dataLayerState, setDataLayerState] = useState<ISnippetsParams>(initialState)
+  const gtmContextState = useContext(useGTMHookContext)
 
   const init = useCallback(
     (snippetParams: ISnippetsParams): void =>
@@ -40,9 +65,9 @@ export default function useGTM(): IUseGTM {
 
   const sendDataToGTM = useCallback(
     (data: Object): void => {
-      sendToGTM({ data, dataLayerName: dataLayerState.dataLayerName! })
+      sendToGTM({ data, dataLayerName: gtmContextState?.dataLayerName! })
     },
-    [dataLayerState]
+    [gtmContextState]
   )
 
   useEffect(() => {
@@ -56,8 +81,14 @@ export default function useGTM(): IUseGTM {
     }
   }, [dataLayerState])
 
+  const UseGTMHookProvider = ({ children }: GTMHookProviderProps) => (
+    <useGTMHookContext.Provider value={dataLayerState}>{children}</useGTMHookContext.Provider>
+  )
+
   return {
     init,
-    sendDataToGTM
+    sendDataToGTM,
+    UseGTMHookProvider,
+    useGTMHookContext
   }
 }

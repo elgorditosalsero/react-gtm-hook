@@ -14,7 +14,7 @@ describe('Suite of snippets functions', () => {
     it('should return an empty string', () => {
       const dl = getDataLayerSnippet(undefined)
 
-      expect(dl).toEqual('dataLayer = []')
+      expect(dl).toEqual(`window.dataLayer = window.dataLayer || []; window.dataLayer.push(undefined)`)
     })
 
     it('should return the dataLayer', () => {
@@ -39,7 +39,7 @@ describe('Suite of snippets functions', () => {
     })
 
     it('should return the script with the default dataLayerName', () => {
-      const customDataLayerName = 'custonDL'
+      const customDataLayerName = 'customDL'
       params = { ...params, dataLayerName: customDataLayerName }
 
       const gtmSnippet = getGTMScript(params.dataLayerName, params.id)
@@ -51,7 +51,7 @@ describe('Suite of snippets functions', () => {
     })
 
     it('should return the script with the default dataLayerName and custom environment auth', () => {
-      const customDataLayerName = 'custonDL'
+      const customDataLayerName = 'customDL'
       params = {
         ...params,
         dataLayerName: customDataLayerName,
