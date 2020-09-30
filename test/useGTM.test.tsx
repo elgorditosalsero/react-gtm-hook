@@ -1,6 +1,7 @@
+import React from 'react'
 import { act, renderHook } from '@testing-library/react-hooks'
 
-import useGTM from '../src'
+import useGTM, { TestingProvider } from '../src'
 
 import { ISnippetsParams } from '../src/models/GoogleTagManager'
 
@@ -80,9 +81,11 @@ describe('Suite of useGTM Hook', () => {
   })
 
   it('should send the data to the GTM with a custom dataLayer name', async () => {
-    const { result } = renderHook(() => useGTM())
+    const params: ISnippetsParams = { id: 'GTM-test', dataLayerName: 'customDL' }
+    const wrapper = ({ children }: any) => <TestingProvider state={params}>{children}</TestingProvider>
+    const { result } = renderHook(() => useGTM(), { wrapper })
 
-    act(() => result.current.init({ id: 'GTM-test', dataLayerName: 'customDL' }))
+    act(() => result.current.init(params))
     act(() => result.current.sendDataToGTM({ event: 'works' }))
 
     expect(window['customDL']).toContainEqual({ event: 'works' })
