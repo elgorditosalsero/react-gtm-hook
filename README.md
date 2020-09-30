@@ -13,6 +13,7 @@ With this custom hook, you can easily use the Google Tag Manager with 0 config, 
 - [Installation](#installation)
 - [How to use](#how-to-use)
 - [API](#api)
+- [Example](#example)
 - [License](#license)
 
 ## Installation
@@ -25,6 +26,11 @@ $ npm install @elgorditosalsero/react-gtm-hook
 
 ## How to use
 
+## Pay attention
+
+Since v2.0 I'm using the context to share globally the config of the GTM for the Hook.
+If you're looking for the 1.x doc, check [this](https://github.com/elgorditosalsero/react-gtm-hook/tree/v1.0.6)
+
 ### Basic
 
 ```typescript jsx
@@ -32,11 +38,15 @@ import { useEffect } from 'react'
 import useGTM from '@elgorditosalsero/react-gtm-hook'
 
 const App = () => {
-  const { init } = useGTM()
+  const { init, UseGTMHookProvider } = useGTM()
 
   useEffect(() => init({ id: 'GTM-ID' }), [])
 
-  return <p>My awesome app</p>
+  return (
+    <UseGTMHookProvider>
+      <p>My awesome app</p>
+    </UseGTMHookProvider>
+  )
 }
 ```
 
@@ -47,7 +57,7 @@ import { useEffect } from 'react'
 import useGTM from '@elgorditosalsero/react-gtm-hook'
 
 const App = () => {
-  const { init } = useGTM()
+  const { init, UseGTMHookProvider } = useGTM()
   const gtmParams = {
     id: 'GTM-ID',
     dataLayerName: 'customDataLayerName'
@@ -55,7 +65,11 @@ const App = () => {
 
   useEffect(() => init(gtmParams), [])
 
-  return <p>My awesome app</p>
+  return (
+    <UseGTMHookProvider>
+      <p>My awesome app</p>
+    </UseGTMHookProvider>
+  )
 }
 ```
 
@@ -66,7 +80,7 @@ import { useEffect } from 'react'
 import useGTM from '@elgorditosalsero/react-gtm-hook'
 
 const App = () => {
-  const { init } = useGTM()
+  const { init, UseGTMHookProvider } = useGTM()
   const gtmParams = {
     id: 'GTM-ID',
     dataLayer: {
@@ -78,7 +92,11 @@ const App = () => {
 
   useEffect(() => init(gtmParams), [])
 
-  return <p>My awesome app</p>
+  return (
+    <UseGTMHookProvider>
+      <p>My awesome app</p>
+    </UseGTMHookProvider>
+  )
 }
 ```
 
@@ -89,7 +107,7 @@ import { useEffect } from 'react'
 import useGTM from '@elgorditosalsero/react-gtm-hook'
 
 const App = () => {
-  const { init } = useGTM()
+  const { init, UseGTMHookProvider } = useGTM()
   const gtmParams = {
     id: 'GTM-ID',
     environment: {
@@ -100,7 +118,11 @@ const App = () => {
 
   useEffect(() => init(gtmParams), [])
 
-  return <p>My awesome app</p>
+  return (
+    <UseGTMHookProvider>
+      <p>My awesome app</p>
+    </UseGTMHookProvider>
+  )
 }
 ```
 
@@ -113,7 +135,7 @@ import { useEffect } from 'react'
 import useGTM from '@elgorditosalsero/react-gtm-hook'
 
 const App = () => {
-  const { init } = useGTM()
+  const { init, UseGTMHookProvider } = useGTM()
   const gtmParams = {
     id: 'GTM-ID',
     dataLayerName: 'customDataLayerName'
@@ -122,10 +144,12 @@ const App = () => {
   useEffect(() => init(gtmParams), [])
 
   return (
-    <div>
-      <p>My awesome app</p>
-      <MyAwesomeComp />
-    </div>
+    <UseGTMHookProvider>
+      <div>
+        <p>My awesome app</p>
+        <MyAwesomeComp />
+      </div>
+    </UseGTMHookProvider>
   )
 }
 
@@ -161,6 +185,10 @@ const MyAwesomeComp = () => {
 | Name | Type     | Required | Info                                                                                             |
 | ---- | -------- | -------- | ------------------------------------------------------------------------------------------------ |
 | data | `Object` | **YES**  | The object data to send to the GTM, like `{event: 'my-awesome-event', 'my-custom-var': 'value'}` |
+
+## Example
+
+You can see this lib live on the dedicated [site](https://elgorditosalsero-react-gtm-hook.netlify.app/)
 
 ## License
 
