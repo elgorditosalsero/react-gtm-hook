@@ -1,5 +1,5 @@
 import { getDataLayerSnippet, getGTMScript, getIframeSnippet } from './snippets'
-import { ISendToGTM, ISetupGTM, ISnippetsParams } from 'models/GoogleTagManager'
+import { ISendToGTM, ISetupGTM, ISnippetsParams } from '../models/GoogleTagManager'
 
 /**
  * Function to setup the Google Tag Manager
