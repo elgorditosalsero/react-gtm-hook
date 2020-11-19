@@ -1,5 +1,5 @@
 {
-  "include": ["src", "types"],
+  "include": ["src"],
   "exclude": ["test"],
   "compilerOptions": {
     "module": "esnext",
@@ -17,11 +17,6 @@
     "strictNullChecks": true,
     "strictFunctionTypes": true,
     "moduleResolution": "node",
-    "baseUrl": "./",
-    "paths": {
-      "utils": ["./src/utils"],
-      "*": ["src/*", "node_modules/*"]
-    },
     "jsx": "react",
     "esModuleInterop": true
   }

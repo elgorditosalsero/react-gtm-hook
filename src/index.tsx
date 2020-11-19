@@ -1,7 +1,7 @@
 import React, { Context, ReactNode, createContext, useCallback, useContext, useEffect, useState } from 'react'
-import { initGTM, sendToGTM } from 'utils/GoogleTagManager'
+import { initGTM, sendToGTM } from './utils/GoogleTagManager'
 
-import { ISnippetsParams } from 'models/GoogleTagManager'
+import { ISnippetsParams } from './models/GoogleTagManager'
 
 declare global {
   interface Window {

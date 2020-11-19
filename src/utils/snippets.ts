@@ -1,4 +1,4 @@
-import { IDataLayer, ISnippets, ISnippetsParams } from 'models/GoogleTagManager'
+import { IDataLayer, ISnippets, ISnippetsParams } from '../models/GoogleTagManager'
 
 /**
  * Function to get and set dataLayer
