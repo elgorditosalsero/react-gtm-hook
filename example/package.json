@@ -10,12 +10,12 @@
     "lint": "eslint . --ext .tsx"
   },
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^3.9.0",
-    "@typescript-eslint/parser": "^3.9.0",
+    "@typescript-eslint/eslint-plugin": "^4.15.1",
+    "@typescript-eslint/parser": "^4.15.1",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-react": "^7.20.6",
-    "eslint-plugin-react-hooks": "^4.0.8",
-    "react-app-polyfill": "^1.0.0"
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "react-app-polyfill": "^2.0.0"
   },
   "alias": {
     "react": "../node_modules/react",
@@ -24,11 +24,11 @@
     "scheduler/tracing": "../node_modules/scheduler/tracing-profiling"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.6",
-    "@types/react": "^16.9.11",
-    "@types/react-dom": "^16.8.4",
-    "local-web-server": "^4.2.0",
-    "parcel": "^1.12.3",
-    "typescript": "^3.4.5"
+    "@babel/core": "^7.12.16",
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.1",
+    "local-web-server": "^4.2.1",
+    "parcel": "^1.12.4",
+    "typescript": "^4.1.5"
   }
 }
