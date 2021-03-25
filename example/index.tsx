@@ -13,6 +13,8 @@ const App = (): JSX.Element => {
 
   React.useEffect(() => init(gtmParams), [init])
 
+  React.useEffect(() => console.log('render'), [])
+
   return (
     <Router>
       <UseGTMHookProvider>
