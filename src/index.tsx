@@ -1,4 +1,13 @@
-import React, { Context, ReactNode, createContext, useCallback, useContext, useEffect, useState } from 'react'
+import React, {
+  Context,
+  ReactNode,
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+  MemoExoticComponent
+} from 'react'
 import { initGTM, sendToGTM } from './utils/GoogleTagManager'
 
 import { ISnippetsParams } from './models/GoogleTagManager'
@@ -6,6 +15,7 @@ import { ISnippetsParams } from './models/GoogleTagManager'
 declare global {
   interface Window {
     dataLayer: Object | undefined
+
     [key: string]: any
   }
 }
@@ -21,7 +31,7 @@ type GTMHookProviderProps = { state?: any; children: ReactNode }
 export type IUseGTM = {
   init({ dataLayer, dataLayerName, id }: ISnippetsParams): void
   sendDataToGTM(data: Object): void
-  UseGTMHookProvider: ({ children }: GTMHookProviderProps) => JSX.Element
+  UseGTMHookProvider: MemoExoticComponent<({ children }: GTMHookProviderProps) => JSX.Element>
   useGTMHookContext: Context<ISnippetsParams | undefined>
 }
 
@@ -56,7 +66,7 @@ export default function useGTM(): IUseGTM {
 
   const init = useCallback(
     (snippetParams: ISnippetsParams): void =>
-      setDataLayerState(state => ({
+      setDataLayerState((state) => ({
         ...state,
         ...snippetParams
       })),
@@ -81,9 +91,9 @@ export default function useGTM(): IUseGTM {
     }
   }, [dataLayerState])
 
-  const UseGTMHookProvider = ({ children }: GTMHookProviderProps) => (
+  const UseGTMHookProvider = React.memo(({ children }: GTMHookProviderProps) => (
     <useGTMHookContext.Provider value={dataLayerState}>{children}</useGTMHookContext.Provider>
-  )
+  ))
 
   return {
     init,
