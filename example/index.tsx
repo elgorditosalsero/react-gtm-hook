@@ -2,20 +2,16 @@ import 'react-app-polyfill/ie11'
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
-import useGTM from '../dist'
+import { GTMProvider, useGTMDispatch } from '../dist'
 
 const gtmParams = { id: 'GTM-WH5NGGZ', dataLayer: { customInitValue: 'imCustom' }, dataLayerName: 'customDL' }
 
 const App = (): JSX.Element => {
-  const { init, UseGTMHookProvider } = useGTM()
-
-  React.useEffect(() => init(gtmParams), [init])
-
   React.useEffect(() => console.log('render'), [])
 
   return (
     <Router>
-      <UseGTMHookProvider>
+      <GTMProvider state={gtmParams}>
         <div>
           <Switch>  
             <Route path="/push_on_mount" component={RoutePushOnMount} />
@@ -34,13 +30,13 @@ const App = (): JSX.Element => {
             </Route>
           </Switch>
         </div>
-      </UseGTMHookProvider>
+      </GTMProvider>
     </Router>
   )
 }
 
 const MyAwesomeButton = () => {
-  const { sendDataToGTM } = useGTM()
+  const sendDataToGTM = useGTMDispatch()
 
   return (
     <>
@@ -51,7 +47,7 @@ const MyAwesomeButton = () => {
 }
 
 const RoutePushOnMount = () => {
-  const { sendDataToGTM } = useGTM()
+  const sendDataToGTM = useGTMDispatch()
 
   React.useEffect(() => {
     sendDataToGTM({event: 'push_on_mount', customData: 'custom_data'})
