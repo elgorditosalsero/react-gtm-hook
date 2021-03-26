@@ -6,8 +6,6 @@ import useGTM from '../dist'
 
 const gtmParams = { id: 'GTM-WH5NGGZ', dataLayer: { customInitValue: 'imCustom' }, dataLayerName: 'customDL' }
 
-// initGTMHook(gtmParams)
-
 const App = (): JSX.Element => {
   const { init, UseGTMHookProvider } = useGTM()
 
@@ -19,12 +17,8 @@ const App = (): JSX.Element => {
     <Router>
       <UseGTMHookProvider>
         <div>
-          <Switch>
-            <Route path="/another">
-              <h2>Another route</h2>
-              <br />
-              <Link to="/">Home</Link>
-            </Route>
+          <Switch>  
+            <Route path="/push_on_mount" component={RoutePushOnMount} />
             <Route path="/test">
               <h2>Test route</h2>
               <MyAwesomeButton />
@@ -36,7 +30,7 @@ const App = (): JSX.Element => {
               <Link to="test">Test Route</Link>
               <br />
               <br />
-              <Link to="another">Another route</Link>
+              <Link to="push_on_mount">Push on mount route</Link>
             </Route>
           </Switch>
         </div>
@@ -52,6 +46,22 @@ const MyAwesomeButton = () => {
     <>
       <p>The awesome button</p>
       <button onClick={(): void => sendDataToGTM({ event: 'my-custom-event' })}>Send Event</button>
+    </>
+  )
+}
+
+const RoutePushOnMount = () => {
+  const { sendDataToGTM } = useGTM()
+
+  React.useEffect(() => {
+    sendDataToGTM({event: 'push_on_mount', customData: 'custom_data'})
+  });
+
+  return (
+    <>
+      <h2>Another route</h2>
+      <br />
+      <Link to="/">Home</Link>
     </>
   )
 }
