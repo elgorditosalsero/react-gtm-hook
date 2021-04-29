@@ -4,7 +4,13 @@ import * as ReactDOM from 'react-dom'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import { GTMProvider, useGTMDispatch } from '../dist'
 
-const gtmParams = { id: 'GTM-WH5NGGZ', dataLayer: { customInitValue: 'imCustom' }, dataLayerName: 'customDL' }
+const gtmParams = {
+  id: 'GTM-WH5NGGZ',
+  environment: {
+    gtm_auth: '__XcYgksrXXbC4zLR-8REg',
+    gtm_preview: 'env-8'
+  }
+}
 
 const App = (): JSX.Element => {
   React.useEffect(() => console.log('render'), [])
@@ -13,7 +19,7 @@ const App = (): JSX.Element => {
     <Router>
       <GTMProvider state={gtmParams}>
         <div>
-          <Switch>  
+          <Switch>
             <Route path="/push_on_mount" component={RoutePushOnMount} />
             <Route path="/test">
               <h2>Test route</h2>
@@ -50,8 +56,8 @@ const RoutePushOnMount = () => {
   const sendDataToGTM = useGTMDispatch()
 
   React.useEffect(() => {
-    sendDataToGTM({event: 'push_on_mount', customData: 'custom_data'})
-  });
+    sendDataToGTM({ event: 'push_on_mount', customData: 'custom_data' })
+  })
 
   return (
     <>

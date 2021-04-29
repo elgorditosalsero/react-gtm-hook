@@ -52,12 +52,12 @@ function GTMProvider({ state, children }: GTMHookProviderProps): JSX.Element {
 
   useEffect(() => {
     initGTM({
-      dataLayer: state.dataLayer,
-      dataLayerName: state.dataLayerName,
-      environment: state.environment,
-      id: state.id
+      dataLayer: store.dataLayer,
+      dataLayerName: store.dataLayerName,
+      environment: store.environment,
+      id: store.id
     })
-  }, [state])
+  }, [store])
 
   return (
     <GTMContext.Provider value={store}>
