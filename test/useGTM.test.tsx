@@ -1,3 +1,9 @@
+describe('useGTMTestSuite', () => {
+  it('should return true', () => {
+    expect(true).toBe(true)
+  })
+})
+
 // import React from 'react'
 // import { act, renderHook } from '@testing-library/react-hooks'
 //
