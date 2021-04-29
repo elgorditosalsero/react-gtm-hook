@@ -33,54 +33,48 @@ If you're looking for the 1.x doc, check [this](https://github.com/elgorditosals
 
 ### Basic
 
-```typescript jsx
+```jsx
 import { useEffect } from 'react'
-import useGTM from '@elgorditosalsero/react-gtm-hook'
+import { GTMProvider } from '@elgorditosalsero/react-gtm-hook'
 
 const App = () => {
-  const { init, UseGTMHookProvider } = useGTM()
-
-  useEffect(() => init({ id: 'GTM-ID' }), [])
+  const gtmParams = { id: 'GTM-ID' }
 
   return (
-    <UseGTMHookProvider>
+    <GTMProvider state={gtmParams}>
       <p>My awesome app</p>
-    </UseGTMHookProvider>
+    </GTMProvider>
   )
 }
 ```
 
 ### With custom DataLayer Name
 
-```typescript jsx
+```jsx
 import { useEffect } from 'react'
-import useGTM from '@elgorditosalsero/react-gtm-hook'
+import { GTMProvider } from '@elgorditosalsero/react-gtm-hook'
 
 const App = () => {
-  const { init, UseGTMHookProvider } = useGTM()
   const gtmParams = {
     id: 'GTM-ID',
     dataLayerName: 'customDataLayerName'
   }
 
-  useEffect(() => init(gtmParams), [])
-
   return (
-    <UseGTMHookProvider>
+    <GTMProvider state={gtmParams}>
       <p>My awesome app</p>
-    </UseGTMHookProvider>
+    </GTMProvider>
   )
 }
 ```
 
 ### With custom DataLayer name and initial values
 
-```typescript jsx
+```jsx
 import { useEffect } from 'react'
-import useGTM from '@elgorditosalsero/react-gtm-hook'
+import { GTMProvider } from '@elgorditosalsero/react-gtm-hook'
 
 const App = () => {
-  const { init, UseGTMHookProvider } = useGTM()
   const gtmParams = {
     id: 'GTM-ID',
     dataLayer: {
@@ -90,24 +84,21 @@ const App = () => {
     dataLayerName: 'customDataLayerName'
   }
 
-  useEffect(() => init(gtmParams), [])
-
   return (
-    <UseGTMHookProvider>
+    <GTMProvider state={gtmParams}>
       <p>My awesome app</p>
-    </UseGTMHookProvider>
+    </GTMProvider>
   )
 }
 ```
 
 ### Use a GTM custom environment
 
-```typescript jsx
+```jsx
 import { useEffect } from 'react'
-import useGTM from '@elgorditosalsero/react-gtm-hook'
+import { GTMProvider } from '@elgorditosalsero/react-gtm-hook'
 
 const App = () => {
-  const { init, UseGTMHookProvider } = useGTM()
   const gtmParams = {
     id: 'GTM-ID',
     environment: {
@@ -116,12 +107,10 @@ const App = () => {
     }
   }
 
-  useEffect(() => init(gtmParams), [])
-
   return (
-    <UseGTMHookProvider>
+    <GTMProvider state={gtmParams}>
       <p>My awesome app</p>
-    </UseGTMHookProvider>
+    </GTMProvider>
   )
 }
 ```
@@ -130,31 +119,28 @@ _To find the `gtm_auth` and `gtm_preview` values for your custom GTM environment
 
 ### Sending data to GTM
 
-```typescript jsx
+```jsx
 import { useEffect } from 'react'
-import useGTM from '@elgorditosalsero/react-gtm-hook'
+import { GTMProvider, useGTMDispatch } from '@elgorditosalsero/react-gtm-hook'
 
 const App = () => {
-  const { init, UseGTMHookProvider } = useGTM()
   const gtmParams = {
     id: 'GTM-ID',
     dataLayerName: 'customDataLayerName'
   }
 
-  useEffect(() => init(gtmParams), [])
-
   return (
-    <UseGTMHookProvider>
+    <GTMProvider state={gtmParams}>
       <div>
         <p>My awesome app</p>
         <MyAwesomeComp />
       </div>
-    </UseGTMHookProvider>
+    </GTMProvider>
   )
 }
 
 const MyAwesomeComp = () => {
-  const { sendDataToGTM } = useGTM()
+  const sendDataToGTM = useGTMDispatch()
 
   const handleClick = () => sendDataToGTM({ event: 'awesomeButtonClicked', value: 'imAwesome' })
 

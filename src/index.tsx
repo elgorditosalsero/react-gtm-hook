@@ -1,7 +1,7 @@
-import React, { Context, ReactNode, createContext, useCallback, useContext, useEffect, useState } from 'react'
-import { initGTM, sendToGTM } from './utils/GoogleTagManager'
+import React, { Context, ReactNode, createContext, useEffect, useContext, useReducer } from 'react'
 
 import { ISnippetsParams } from './models/GoogleTagManager'
+import { initGTM, sendToGTM } from './utils/GoogleTagManager'
 
 declare global {
   interface Window {
@@ -19,10 +19,8 @@ type GTMHookProviderProps = { state?: any; children: ReactNode }
  * The shape of the hook
  */
 export type IUseGTM = {
-  init({ dataLayer, dataLayerName, id }: ISnippetsParams): void
-  sendDataToGTM(data: Object): void
   UseGTMHookProvider: ({ children }: GTMHookProviderProps) => JSX.Element
-  useGTMHookContext: Context<ISnippetsParams | undefined>
+  GTMContext: Context<ISnippetsParams | undefined>
 }
 
 /**
@@ -38,57 +36,43 @@ export const initialState: ISnippetsParams = {
 /**
  * The context
  */
-const useGTMHookContext = createContext<ISnippetsParams | undefined>(initialState)
+export const GTMContext = createContext<ISnippetsParams | undefined>(initialState)
+export const GTMContextDispatch = createContext<any | undefined>(undefined)
+
+function dataReducer(state: ISnippetsParams, data: any) {
+  sendToGTM({ data, dataLayerName: state?.dataLayerName! })
+  return state
+}
 
 /**
- * A provider for testing purpose only
+ * The Google Tag Manager Provider
  */
-export const TestingProvider = ({ state, children }: GTMHookProviderProps) => (
-  <useGTMHookContext.Provider value={state}>{children}</useGTMHookContext.Provider>
-)
-
-/**
- * The Google Tag Manager Hook
- */
-export default function useGTM(): IUseGTM {
-  const [dataLayerState, setDataLayerState] = useState<ISnippetsParams>(initialState)
-  const gtmContextState = useContext(useGTMHookContext)
-
-  const init = useCallback(
-    (snippetParams: ISnippetsParams): void =>
-      setDataLayerState(state => ({
-        ...state,
-        ...snippetParams
-      })),
-    [setDataLayerState]
-  )
-
-  const sendDataToGTM = useCallback(
-    (data: Object): void => {
-      sendToGTM({ data, dataLayerName: gtmContextState?.dataLayerName! })
-    },
-    [gtmContextState]
-  )
+function GTMProvider({ state, children }: GTMHookProviderProps): JSX.Element {
+  const [store, dispatch] = useReducer(dataReducer, { ...initialState, ...state })
 
   useEffect(() => {
-    if (dataLayerState.id !== '') {
-      initGTM({
-        dataLayer: dataLayerState.dataLayer,
-        dataLayerName: dataLayerState.dataLayerName,
-        environment: dataLayerState.environment,
-        id: dataLayerState.id
-      })
-    }
-  }, [dataLayerState])
+    initGTM({
+      dataLayer: state.dataLayer,
+      dataLayerName: state.dataLayerName,
+      environment: state.environment,
+      id: state.id
+    })
+  }, [state])
 
-  const UseGTMHookProvider = ({ children }: GTMHookProviderProps) => (
-    <useGTMHookContext.Provider value={dataLayerState}>{children}</useGTMHookContext.Provider>
+  return (
+    <GTMContext.Provider value={store}>
+      <GTMContextDispatch.Provider value={dispatch}>{children}</GTMContextDispatch.Provider>
+    </GTMContext.Provider>
   )
-
-  return {
-    init,
-    sendDataToGTM,
-    UseGTMHookProvider,
-    useGTMHookContext
-  }
 }
+
+function useGTMDispatch() {
+  const context = useContext(GTMContextDispatch)
+  if (context === undefined) {
+    throw new Error('dispatchGTMEvent must be used within a GTMProvider')
+  }
+
+  return context
+}
+
+export { GTMProvider, useGTMDispatch, sendToGTM }
