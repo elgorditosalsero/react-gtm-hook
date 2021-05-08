@@ -34,7 +34,6 @@ If you're looking for the 1.x doc, check [this](https://github.com/elgorditosals
 ### Basic
 
 ```jsx
-import { useEffect } from 'react'
 import { GTMProvider } from '@elgorditosalsero/react-gtm-hook'
 
 const App = () => {
@@ -51,7 +50,6 @@ const App = () => {
 ### With custom DataLayer Name
 
 ```jsx
-import { useEffect } from 'react'
 import { GTMProvider } from '@elgorditosalsero/react-gtm-hook'
 
 const App = () => {
@@ -71,7 +69,6 @@ const App = () => {
 ### With custom DataLayer name and initial values
 
 ```jsx
-import { useEffect } from 'react'
 import { GTMProvider } from '@elgorditosalsero/react-gtm-hook'
 
 const App = () => {
@@ -95,7 +92,6 @@ const App = () => {
 ### Use a GTM custom environment
 
 ```jsx
-import { useEffect } from 'react'
 import { GTMProvider } from '@elgorditosalsero/react-gtm-hook'
 
 const App = () => {
@@ -120,7 +116,6 @@ _To find the `gtm_auth` and `gtm_preview` values for your custom GTM environment
 ### Sending data to GTM
 
 ```jsx
-import { useEffect } from 'react'
 import { GTMProvider, useGTMDispatch } from '@elgorditosalsero/react-gtm-hook'
 
 const App = () => {
