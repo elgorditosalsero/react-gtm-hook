@@ -156,10 +156,11 @@ const MyAwesomeComp = () => {
 
 | Name          | Type     | Required | Info                                                                                |
 | ------------- | -------- | -------- | ----------------------------------------------------------------------------------- |
-| id            | `String` | **YES**  | The container ID from the Tag Manager, it looks like: `GMT-0T0TTT`                  |
+| id            | `String` | **YES**  | The container ID from the Tag Manager, it looks like: `GTM-0T0TTT`                  |
 | dataLayer     | `Object` | **NO**   | Custom values for the dataLayer, like `{'my-init-prop': 'value'}`                   |
 | dataLayerName | `String` | **NO**   | Custom name for the dataLayer, if not passed, it will be the default: `dataLayer`   |
 | environment   | `Object` | **NO**   | Provide the `gtm_auth` and `gtm_preview` parameters to use a custom GTM environment |
+| nonce   | `String` | **NO**   | Server generated nonce. see https://developers.google.com/tag-manager/web/csp |
 
 ### SentDataToGTM
 
