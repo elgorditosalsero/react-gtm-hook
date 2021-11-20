@@ -37,6 +37,7 @@ export type ISnippetsParams = {
   dataLayer?: Pick<IDataLayer, 'dataLayer'>['dataLayer']
   dataLayerName?: Pick<IDataLayer, 'dataLayerName'>['dataLayerName']
   environment?: ICustomEnvironmentParams
+  nonce?: string;
   id: string
 }
 

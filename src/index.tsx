@@ -30,6 +30,7 @@ export const initialState: ISnippetsParams = {
   dataLayer: undefined,
   dataLayerName: 'dataLayer',
   environment: undefined,
+  nonce: undefined,
   id: ''
 }
 
@@ -55,6 +56,7 @@ function GTMProvider({ state, children }: GTMHookProviderProps): JSX.Element {
       dataLayer: store.dataLayer,
       dataLayerName: store.dataLayerName,
       environment: store.environment,
+      nonce: store.nonce,
       id: store.id
     })
   }, [store])
