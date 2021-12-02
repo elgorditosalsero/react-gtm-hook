@@ -55,8 +55,8 @@ export const initGTM = ({ dataLayer, dataLayerName, environment, nonce, id }: IS
   const script = gtm.getScript()
   const noScript = gtm.getNoScript()
 
-  document.head.insertBefore(script, document.head.childNodes[0])
   document.head.insertBefore(dataLayerScript, document.head.childNodes[0])
+  document.head.insertBefore(script, document.head.childNodes[0])
   document.body.insertBefore(noScript, document.body.childNodes[0])
 }
 
