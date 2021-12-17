@@ -13,7 +13,7 @@ declare global {
 /**
  * The shape of the context provider
  */
-type GTMHookProviderProps = { state?: any; children: ReactNode }
+type GTMHookProviderProps = { state?: ISnippetsParams; children: ReactNode }
 
 /**
  * The shape of the hook
@@ -31,7 +31,8 @@ export const initialState: ISnippetsParams = {
   dataLayerName: 'dataLayer',
   environment: undefined,
   nonce: undefined,
-  id: ''
+  id: '',
+  injectScript: true
 }
 
 /**
@@ -52,14 +53,17 @@ function GTMProvider({ state, children }: GTMHookProviderProps): JSX.Element {
   const [store, dispatch] = useReducer(dataReducer, { ...initialState, ...state })
 
   useEffect(() => {
+    if (!state || state.injectScript == false) 
+      return;
+    const mergedState = {...store, ...state};
     initGTM({
-      dataLayer: store.dataLayer,
-      dataLayerName: store.dataLayerName,
-      environment: store.environment,
-      nonce: store.nonce,
-      id: store.id
+      dataLayer: mergedState.dataLayer,
+      dataLayerName: mergedState.dataLayerName,
+      environment: mergedState.environment,
+      nonce: mergedState.nonce,
+      id: mergedState.id
     })
-  }, [store])
+  }, [JSON.stringify(state)])
 
   return (
     <GTMContext.Provider value={store}>
