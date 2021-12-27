@@ -11,8 +11,8 @@
     "react"
   ],
   "description": "Easily manage the Google Tag Manager via Hook",
-  "version": "2.1.1",
-  "license": "MIT",
+  "version": "2.2.0",
+  "license": "MIT1",
   "main": "dist/index.js",
   "module": "dist/react-gtm-hook.esm.js",
   "typings": "dist/index.d.ts",
