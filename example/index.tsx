@@ -1,8 +1,8 @@
 import 'react-app-polyfill/ie11'
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
-import { GTMProvider, useGTMDispatch } from '../dist'
+import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom'
+import {GTMProvider, useGTMDispatch} from '../dist'
 
 const gtmParams = {
   id: 'GTM-WH5NGGZ',
@@ -13,33 +13,35 @@ const gtmParams = {
 }
 
 const App = (): JSX.Element => {
-  React.useEffect(() => console.log('render'), [])
-
   return (
     <Router>
       <GTMProvider state={gtmParams}>
         <div>
-          <Switch>
-            <Route path="/push_on_mount" component={RoutePushOnMount} />
-            <Route path="/test">
-              <h2>Test route</h2>
-              <MyAwesomeButton />
-              <br />
-              <Link to="/">Home</Link>
-            </Route>
-            <Route path="/" exact>
-              <h2>Homepage</h2>
-              <Link to="test">Test Route</Link>
-              <br />
-              <br />
-              <Link to="push_on_mount">Push on mount route</Link>
-            </Route>
-          </Switch>
+          <Routes>
+            <Route path="/push_on_mount" element={<RoutePushOnMount/>}/>
+            <Route path="/test" element={<TestRoute/>}/>
+            <Route path="/" element={<Homepage/>}/>
+          </Routes>
         </div>
       </GTMProvider>
     </Router>
   )
 }
+
+const TestRoute = () => <>
+  <h2>Test route</h2>
+  <MyAwesomeButton/>
+  <br/>
+  <Link to="/">Home</Link>
+</>
+
+const Homepage = () => <>
+  <h2>Homepage</h2>
+  <Link to="test">Test Route</Link>
+  <br/>
+  <br/>
+  <Link to="push_on_mount">Push on mount route</Link>
+</>
 
 const MyAwesomeButton = () => {
   const sendDataToGTM = useGTMDispatch()
@@ -47,7 +49,7 @@ const MyAwesomeButton = () => {
   return (
     <>
       <p>The awesome button</p>
-      <button onClick={(): void => sendDataToGTM({ event: 'my-custom-event' })}>Send Event</button>
+      <button onClick={(): void => sendDataToGTM({event: 'my-custom-event'})}>Send Event</button>
     </>
   )
 }
@@ -56,16 +58,16 @@ const RoutePushOnMount = () => {
   const sendDataToGTM = useGTMDispatch()
 
   React.useEffect(() => {
-    sendDataToGTM({ event: 'push_on_mount', customData: 'custom_data' })
+    sendDataToGTM({event: 'push_on_mount', customData: 'custom_data'})
   })
 
   return (
     <>
       <h2>Another route</h2>
-      <br />
+      <br/>
       <Link to="/">Home</Link>
     </>
   )
 }
 
-ReactDOM.render(<App />, document.getElementById('root'))
+ReactDOM.render(<App/>, document.getElementById('root'))

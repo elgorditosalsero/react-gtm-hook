@@ -12,7 +12,7 @@
   ],
   "description": "Easily manage the Google Tag Manager via Hook",
   "version": "2.2.0",
-  "license": "MIT1",
+  "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/react-gtm-hook.esm.js",
   "typings": "dist/index.d.ts",
@@ -31,23 +31,23 @@
     "prepare": "tsdx build"
   },
   "devDependencies": {
-    "@babel/core": "^7.16.0",
+    "@babel/core": "^7.16.7",
     "@testing-library/react": "^12.1.2",
     "@testing-library/react-hooks": "^7.0.2",
-    "@types/react": "^17.0.35",
+    "@types/react": "^17.0.38",
     "@types/react-dom": "^17.0.11",
     "all-contributors-cli": "^6.20.0",
-    "babel-jest": "^27.3.1",
+    "babel-jest": "^27.4.6",
     "babel-plugin-module-resolver": "^4.1.0",
     "husky": "^7.0.4",
-    "prettier": "^2.4.1",
+    "prettier": "^2.5.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-router-dom": "^6.0.2",
+    "react-router-dom": "^6.2.1",
     "react-test-renderer": "^17.0.2",
     "tsdx": "^0.14.1",
     "tslib": "^2.3.1",
-    "typescript": "^4.5.2"
+    "typescript": "^4.5.4"
   },
   "peerDependencies": {
     "react": ">=17"
