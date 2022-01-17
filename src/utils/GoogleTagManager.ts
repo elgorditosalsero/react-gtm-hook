@@ -8,6 +8,9 @@ import { ISendToGTM, ISetupGTM, ISnippetsParams } from '../models/GoogleTagManag
 const setupGTM = (params: ISnippetsParams): ISetupGTM => {
   const getDataLayerScript = (): HTMLElement => {
     const dataLayerScript = document.createElement('script')
+    if (params.nonce) {
+      dataLayerScript.setAttribute("nonce", params.nonce);
+    }
     dataLayerScript.innerHTML = getDataLayerSnippet(params.dataLayer, params.dataLayerName)
     return dataLayerScript
   }
