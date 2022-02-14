@@ -9,7 +9,7 @@ export const getDataLayerSnippet = (
   dataLayer: Pick<IDataLayer, 'dataLayer'>['dataLayer'],
   dataLayerName: Pick<IDataLayer, 'dataLayerName'>['dataLayerName'] = 'dataLayer'
 ): Pick<ISnippets, 'gtmDataLayer'>['gtmDataLayer'] =>
-  `window.${dataLayerName} = window.${dataLayerName} || []; window.${dataLayerName}.push(${JSON.stringify(dataLayer)})`
+  `window.${dataLayerName} = window.${dataLayerName} || [];` + (dataLayer ? `window.${dataLayerName}.push(${JSON.stringify(dataLayer)})` : '')
 
 /**
  * Function to get the Iframe snippet
