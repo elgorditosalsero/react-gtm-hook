@@ -14,7 +14,7 @@ describe('Suite of snippets functions', () => {
     it('should return an empty string', () => {
       const dl = getDataLayerSnippet(undefined)
 
-      expect(dl).toEqual(`window.dataLayer = window.dataLayer || []; window.dataLayer.push(undefined)`)
+      expect(dl).toEqual(`window.dataLayer = window.dataLayer || [];`)
     })
 
     it('should return the dataLayer', () => {
