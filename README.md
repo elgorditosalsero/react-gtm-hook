@@ -180,9 +180,7 @@ You can see this lib live on the dedicated [site](https://elgorditosalsero-react
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
-
+[![All Contributors](https://img.shields.io/badge/all_contributors-9-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -192,12 +190,21 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://www.linkedin.com/in/guidoporcaro/"><img src="https://avatars2.githubusercontent.com/u/65770455?v=4" width="100px;" alt=""/><br /><sub><b>Guido Porcaro</b></sub></a><br /><a href="https://github.com/elgorditosalsero/react-gtm-hook/commits?author=elgorditosalsero" title="Code">💻</a> <a href="https://github.com/elgorditosalsero/react-gtm-hook/commits?author=elgorditosalsero" title="Documentation">📖</a></td>
-    <td align="center"><a href="https://benyap.com"><img src="https://avatars3.githubusercontent.com/u/19235373?v=4" width="100px;" alt=""/><br /><sub><b>Ben Yap</b></sub></a><br /><a href="https://github.com/elgorditosalsero/react-gtm-hook/commits?author=benyap" title="Code">💻</a> <a href="https://github.com/elgorditosalsero/react-gtm-hook/commits?author=benyap" title="Documentation">📖</a> <a href="https://github.com/elgorditosalsero/react-gtm-hook/commits?author=benyap" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://www.linkedin.com/in/guidoporcaro/"><img src="https://avatars2.githubusercontent.com/u/65770455?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Guido Porcaro</b></sub></a><br /><a href="https://github.com/elgorditosalsero/react-gtm-hook/commits?author=elgorditosalsero" title="Code">💻</a> <a href="https://github.com/elgorditosalsero/react-gtm-hook/commits?author=elgorditosalsero" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://benyap.com"><img src="https://avatars3.githubusercontent.com/u/19235373?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ben Yap</b></sub></a><br /><a href="https://github.com/elgorditosalsero/react-gtm-hook/commits?author=benyap" title="Code">💻</a> <a href="https://github.com/elgorditosalsero/react-gtm-hook/commits?author=benyap" title="Documentation">📖</a> <a href="https://github.com/elgorditosalsero/react-gtm-hook/commits?author=benyap" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://cristianlivella.com/"><img src="https://avatars.githubusercontent.com/u/27968888?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Cristian Livella</b></sub></a><br /><a href="https://github.com/elgorditosalsero/react-gtm-hook/commits?author=cristianlivella" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/jafin"><img src="https://avatars.githubusercontent.com/u/127927?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jason Finch</b></sub></a><br /><a href="https://github.com/elgorditosalsero/react-gtm-hook/commits?author=jafin" title="Code">💻</a></td>
+    <td align="center"><a href="https://segredo.dev/"><img src="https://avatars.githubusercontent.com/u/11761170?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Italo</b></sub></a><br /><a href="https://github.com/elgorditosalsero/react-gtm-hook/commits?author=iaurg" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/thecoder93"><img src="https://avatars.githubusercontent.com/u/3246694?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Gianluca La Manna</b></sub></a><br /><a href="https://github.com/elgorditosalsero/react-gtm-hook/commits?author=thecoder93" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/daisy1754"><img src="https://avatars.githubusercontent.com/u/980077?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Kazuki</b></sub></a><br /><a href="https://github.com/elgorditosalsero/react-gtm-hook/commits?author=daisy1754" title="Code">💻</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/perfectial-stepan-mandryka"><img src="https://avatars.githubusercontent.com/u/95344107?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Stepan Mandryka</b></sub></a><br /><a href="https://github.com/elgorditosalsero/react-gtm-hook/commits?author=perfectial-stepan-mandryka" title="Code">💻</a></td>
+    <td align="center"><a href="http://simonsmith.io/"><img src="https://avatars.githubusercontent.com/u/360703?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Simon Smith</b></sub></a><br /><a href="https://github.com/elgorditosalsero/react-gtm-hook/commits?author=simonsmith" title="Documentation">📖</a></td>
   </tr>
 </table>
 
-<!-- markdownlint-enable -->
+<!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->

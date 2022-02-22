@@ -30,6 +30,69 @@
         "doc",
         "test"
       ]
+    },
+    {
+      "login": "cristianlivella",
+      "name": "Cristian Livella",
+      "avatar_url": "https://avatars.githubusercontent.com/u/27968888?v=4",
+      "profile": "https://cristianlivella.com/",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "jafin",
+      "name": "Jason Finch",
+      "avatar_url": "https://avatars.githubusercontent.com/u/127927?v=4",
+      "profile": "https://github.com/jafin",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "iaurg",
+      "name": "Italo",
+      "avatar_url": "https://avatars.githubusercontent.com/u/11761170?v=4",
+      "profile": "https://segredo.dev/",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "thecoder93",
+      "name": "Gianluca La Manna",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3246694?v=4",
+      "profile": "https://github.com/thecoder93",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "daisy1754",
+      "name": "Kazuki",
+      "avatar_url": "https://avatars.githubusercontent.com/u/980077?v=4",
+      "profile": "https://github.com/daisy1754",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "perfectial-stepan-mandryka",
+      "name": "Stepan Mandryka",
+      "avatar_url": "https://avatars.githubusercontent.com/u/95344107?v=4",
+      "profile": "https://github.com/perfectial-stepan-mandryka",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "simonsmith",
+      "name": "Simon Smith",
+      "avatar_url": "https://avatars.githubusercontent.com/u/360703?v=4",
+      "profile": "http://simonsmith.io/",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7
