@@ -66,6 +66,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "daisy1754",
+      "name": "Kazuki",
+      "avatar_url": "https://avatars.githubusercontent.com/u/980077?v=4",
+      "profile": "https://github.com/daisy1754",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7
