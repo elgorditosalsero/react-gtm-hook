@@ -180,7 +180,7 @@ You can see this lib live on the dedicated [site](https://elgorditosalsero-react
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -194,6 +194,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://benyap.com"><img src="https://avatars3.githubusercontent.com/u/19235373?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ben Yap</b></sub></a><br /><a href="https://github.com/elgorditosalsero/react-gtm-hook/commits?author=benyap" title="Code">💻</a> <a href="https://github.com/elgorditosalsero/react-gtm-hook/commits?author=benyap" title="Documentation">📖</a> <a href="https://github.com/elgorditosalsero/react-gtm-hook/commits?author=benyap" title="Tests">⚠️</a></td>
     <td align="center"><a href="https://cristianlivella.com/"><img src="https://avatars.githubusercontent.com/u/27968888?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Cristian Livella</b></sub></a><br /><a href="https://github.com/elgorditosalsero/react-gtm-hook/commits?author=cristianlivella" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/jafin"><img src="https://avatars.githubusercontent.com/u/127927?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jason Finch</b></sub></a><br /><a href="https://github.com/elgorditosalsero/react-gtm-hook/commits?author=jafin" title="Code">💻</a></td>
+    <td align="center"><a href="https://segredo.dev/"><img src="https://avatars.githubusercontent.com/u/11761170?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Italo</b></sub></a><br /><a href="https://github.com/elgorditosalsero/react-gtm-hook/commits?author=iaurg" title="Code">💻</a></td>
   </tr>
 </table>
 
