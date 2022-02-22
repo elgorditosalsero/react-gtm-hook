@@ -84,6 +84,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "simonsmith",
+      "name": "Simon Smith",
+      "avatar_url": "https://avatars.githubusercontent.com/u/360703?v=4",
+      "profile": "http://simonsmith.io/",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7
