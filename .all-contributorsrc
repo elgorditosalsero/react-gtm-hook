@@ -39,6 +39,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "jafin",
+      "name": "Jason Finch",
+      "avatar_url": "https://avatars.githubusercontent.com/u/127927?v=4",
+      "profile": "https://github.com/jafin",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7
