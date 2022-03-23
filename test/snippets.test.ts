@@ -1,4 +1,4 @@
-import { getDataLayerSnippet, getGTMScript, getIframeSnippet } from '../src/utils/snippets'
+import { DEFAULT_DOMAIN, getDataLayerSnippet, getGTMScript, getIframeSnippet } from '../src/utils/snippets'
 import { ISnippetsParams } from '../src/models/GoogleTagManager'
 
 describe('Suite of snippets functions', () => {
@@ -48,6 +48,21 @@ describe('Suite of snippets functions', () => {
       expect(gtmSnippet).toContain(`${params.id}`)
       expect(gtmSnippet).not.toContain('gtm_auth')
       expect(gtmSnippet).not.toContain('gtm_preview')
+      expect(gtmSnippet).toContain(DEFAULT_DOMAIN)
+    })
+
+    it('should return the script with the custom domain', () => {
+      const customDomain = 'https://www.example.com'
+      const customDataLayerName = 'customDL'
+      params = { ...params, dataLayerName: customDataLayerName, customDomain: customDomain }
+
+      const gtmSnippet = getGTMScript(params.dataLayerName, params.id, params.customDomain)
+
+      expect(gtmSnippet).toContain(`${customDataLayerName}`)
+      expect(gtmSnippet).toContain(`${customDomain}`)
+      expect(gtmSnippet).toContain(`${params.id}`)
+      expect(gtmSnippet).not.toContain('gtm_auth')
+      expect(gtmSnippet).not.toContain('gtm_preview')
     })
 
     it('should return the script with the default dataLayerName and custom environment auth', () => {
@@ -61,11 +76,12 @@ describe('Suite of snippets functions', () => {
         }
       }
 
-      const gtmSnippet = getGTMScript(params.dataLayerName, params.id, params.environment)
+      const gtmSnippet = getGTMScript(params.dataLayerName, params.id, undefined, params.environment)
 
       expect(gtmSnippet).toContain(`${customDataLayerName}`)
       expect(gtmSnippet).toContain(`${params.id}`)
       expect(gtmSnippet).toContain('gtm_auth')
+      expect(gtmSnippet).toContain(DEFAULT_DOMAIN)
       expect(gtmSnippet).toContain('gtm_preview')
       expect(gtmSnippet).toContain(params.environment!.gtm_auth)
       expect(gtmSnippet).toContain(params.environment!.gtm_preview)
@@ -81,7 +97,7 @@ describe('Suite of snippets functions', () => {
 
     it('should return the iframe snippet with the passed id', () => {
       const iframeSnippet = getIframeSnippet(params.id)
-
+      expect(iframeSnippet).toContain(DEFAULT_DOMAIN)
       expect(iframeSnippet).toContain(`${params.id}`)
       expect(iframeSnippet).not.toContain('gtm_auth')
       expect(iframeSnippet).not.toContain('gtm_preview')
@@ -96,13 +112,26 @@ describe('Suite of snippets functions', () => {
         }
       }
 
-      const iframeSnippet = getIframeSnippet(params.id, params.environment)
+      const iframeSnippet = getIframeSnippet(params.id, undefined, params.environment)
 
+      expect(iframeSnippet).toContain(DEFAULT_DOMAIN)
       expect(iframeSnippet).toContain(`${params.id}`)
       expect(iframeSnippet).toContain('gtm_auth')
       expect(iframeSnippet).toContain('gtm_preview')
       expect(iframeSnippet).toContain(params.environment!.gtm_auth)
       expect(iframeSnippet).toContain(params.environment!.gtm_preview)
+    })
+
+    it('should return the iframe snippet with the custom domain', () => {
+      params = {
+        ...params,
+        customDomain: 'https://example.com'
+      }
+
+      const iframeSnippet = getIframeSnippet(params.id, params.customDomain)
+
+      expect(iframeSnippet).toContain(params.customDomain)
+      expect(iframeSnippet).toContain(`${params.id}`)
     })
   })
 })

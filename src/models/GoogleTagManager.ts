@@ -37,9 +37,11 @@ export type ISnippetsParams = {
   dataLayer?: Pick<IDataLayer, 'dataLayer'>['dataLayer']
   dataLayerName?: Pick<IDataLayer, 'dataLayerName'>['dataLayerName']
   environment?: ICustomEnvironmentParams
-  nonce?: string,
-  id: string,
+  nonce?: string
+  id: string
   injectScript?: boolean
+  /** Defaults to https://www.googletagmanager.com/gtm.js */
+  customDomain?: string
 }
 
 /**
