@@ -154,14 +154,15 @@ const MyAwesomeComp = () => {
 
 ### Init
 
-| Name          | Type     | Required | Info                                                                                |
-| ------------- | -------- | -------- | ----------------------------------------------------------------------------------- |
-| id            | `String` | **YES**  | The container ID from the Tag Manager, it looks like: `GTM-0T0TTT`                  |
-| dataLayer     | `Object` | **NO**   | Custom values for the dataLayer, like `{'my-init-prop': 'value'}`                   |
-| dataLayerName | `String` | **NO**   | Custom name for the dataLayer, if not passed, it will be the default: `dataLayer`   |
-| environment   | `Object` | **NO**   | Provide the `gtm_auth` and `gtm_preview` parameters to use a custom GTM environment |
-| nonce         | `String` | **NO**   | Server generated nonce. see https://developers.google.com/tag-manager/web/csp |
-| injectScript  | `Boolean`| **NO**   | default(`true`): Decide if the GTM Script is injected, see #30. Also allows for delayed injection by toggling true later in flow |
+| Name          | Type      | Required | Info                                                                                                                             |
+| ------------- | --------- | -------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| id            | `String`  | **YES**  | The container ID from the Tag Manager, it looks like: `GTM-0T0TTT`                                                               |
+| dataLayer     | `Object`  | **NO**   | Custom values for the dataLayer, like `{'my-init-prop': 'value'}`                                                                |
+| dataLayerName | `String`  | **NO**   | Custom name for the dataLayer, if not passed, it will be the default: `dataLayer`                                                |
+| environment   | `Object`  | **NO**   | Provide the `gtm_auth` and `gtm_preview` parameters to use a custom GTM environment                                              |
+| nonce         | `String`  | **NO**   | Server generated nonce. see https://developers.google.com/tag-manager/web/csp                                                    |
+| injectScript  | `Boolean` | **NO**   | default(`true`): Decide if the GTM Script is injected, see #30. Also allows for delayed injection by toggling true later in flow |
+| customDomain  | `String`  | **NO**   | default(`https://www.example.com`): Provide customDomain to use a custom GTM domain                                              |
 
 ### SentDataToGTM
 
@@ -180,7 +181,9 @@ You can see this lib live on the dedicated [site](https://elgorditosalsero-react
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+
 [![All Contributors](https://img.shields.io/badge/all_contributors-9-orange.svg?style=flat-square)](#contributors-)
+
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
