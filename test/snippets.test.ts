@@ -1,5 +1,5 @@
-import { DEFAULT_DOMAIN, getDataLayerSnippet, getGTMScript, getIframeSnippet } from '../src/utils/snippets'
-import { ISnippetsParams } from '../src/models/GoogleTagManager'
+import {DEFAULT_DOMAIN, getDataLayerSnippet, getGTMScript, getIframeSnippet} from '../src/utils/snippets'
+import {ISnippetsParams} from '../src/models/GoogleTagManager'
 
 describe('Suite of snippets functions', () => {
   describe('Suite of getDataLayerSnippet', () => {
@@ -7,7 +7,7 @@ describe('Suite of snippets functions', () => {
     let dataLayerName: string
 
     beforeEach(() => {
-      dataLayer = { user: 'testUser' }
+      dataLayer = {user: 'testUser'}
       dataLayerName = 'customDataLayer'
     })
 
@@ -35,12 +35,12 @@ describe('Suite of snippets functions', () => {
     let params: ISnippetsParams
 
     beforeEach(() => {
-      params = { id: 'GTM-custom-name' }
+      params = {id: 'GTM-custom-name'}
     })
 
     it('should return the script with the default dataLayerName', () => {
       const customDataLayerName = 'customDL'
-      params = { ...params, dataLayerName: customDataLayerName }
+      params = {...params, dataLayerName: customDataLayerName}
 
       const gtmSnippet = getGTMScript(params.dataLayerName, params.id)
 
@@ -54,9 +54,9 @@ describe('Suite of snippets functions', () => {
     it('should return the script with the custom domain', () => {
       const customDomain = 'https://www.example.com'
       const customDataLayerName = 'customDL'
-      params = { ...params, dataLayerName: customDataLayerName, customDomain: customDomain }
+      params = {...params, dataLayerName: customDataLayerName, customDomain: customDomain}
 
-      const gtmSnippet = getGTMScript(params.dataLayerName, params.id, params.customDomain)
+      const gtmSnippet = getGTMScript(params.dataLayerName, params.id, undefined, params.customDomain)
 
       expect(gtmSnippet).toContain(`${customDataLayerName}`)
       expect(gtmSnippet).toContain(`${customDomain}`)
@@ -76,7 +76,7 @@ describe('Suite of snippets functions', () => {
         }
       }
 
-      const gtmSnippet = getGTMScript(params.dataLayerName, params.id, undefined, params.environment)
+      const gtmSnippet = getGTMScript(params.dataLayerName, params.id, params.environment)
 
       expect(gtmSnippet).toContain(`${customDataLayerName}`)
       expect(gtmSnippet).toContain(`${params.id}`)
@@ -92,7 +92,7 @@ describe('Suite of snippets functions', () => {
     let params: ISnippetsParams
 
     beforeEach(() => {
-      params = { id: 'GTM-iframe' }
+      params = {id: 'GTM-iframe'}
     })
 
     it('should return the iframe snippet with the passed id', () => {
@@ -112,7 +112,7 @@ describe('Suite of snippets functions', () => {
         }
       }
 
-      const iframeSnippet = getIframeSnippet(params.id, undefined, params.environment)
+      const iframeSnippet = getIframeSnippet(params.id, params.environment)
 
       expect(iframeSnippet).toContain(DEFAULT_DOMAIN)
       expect(iframeSnippet).toContain(`${params.id}`)
@@ -128,7 +128,7 @@ describe('Suite of snippets functions', () => {
         customDomain: 'https://example.com'
       }
 
-      const iframeSnippet = getIframeSnippet(params.id, params.customDomain)
+      const iframeSnippet = getIframeSnippet(params.id, undefined, params.customDomain)
 
       expect(iframeSnippet).toContain(params.customDomain)
       expect(iframeSnippet).toContain(`${params.id}`)

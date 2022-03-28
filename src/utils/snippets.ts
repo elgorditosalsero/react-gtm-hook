@@ -1,4 +1,4 @@
-import { IDataLayer, ISnippets, ISnippetsParams } from '../models/GoogleTagManager'
+import {ICustomEnvironmentParams, IDataLayer, ISnippets, ISnippetsParams} from '../models/GoogleTagManager'
 
 export const DEFAULT_DOMAIN = 'https://www.googletagmanager.com'
 
@@ -17,16 +17,17 @@ export const getDataLayerSnippet = (
 /**
  * Function to get the Iframe snippet
  * @param environment - The parameters to use a custom environment
+ * @param customDomain - Custom domain for gtm
  * @param id - The id of the container
  */
 export const getIframeSnippet = (
   id: Pick<ISnippetsParams, 'id'>['id'],
-  customDomain: ISnippetsParams['customDomain'] = DEFAULT_DOMAIN,
-  environment?: Pick<ISnippetsParams, 'environment'>['environment']
+  environment?: ICustomEnvironmentParams,
+  customDomain: ISnippetsParams['customDomain'] = DEFAULT_DOMAIN
 ) => {
   let params = ``
   if (environment) {
-    const { gtm_auth, gtm_preview } = environment
+    const {gtm_auth, gtm_preview} = environment
     params = `&gtm_auth=${gtm_auth}&gtm_preview=${gtm_preview}&gtm_cookies_win=x`
   }
   return `<iframe src="${customDomain}/ns.html?id=${id}${params}" height="0" width="0" style="display:none;visibility:hidden" id="tag-manager"></iframe>`
@@ -35,18 +36,19 @@ export const getIframeSnippet = (
 /**
  * Function to get the GTM script
  * @param dataLayerName - The name of the dataLayer
+ * @param customDomain - Custom domain for gtm
  * @param environment - The parameters to use a custom environment
  * @param id - The id of the container
  */
 export const getGTMScript = (
   dataLayerName: Pick<ISnippetsParams, 'dataLayerName'>['dataLayerName'],
   id: Pick<ISnippetsParams, 'id'>['id'],
-  customDomain: ISnippetsParams['customDomain'] = DEFAULT_DOMAIN,
-  environment?: Pick<ISnippetsParams, 'environment'>['environment']
+  environment?: ICustomEnvironmentParams,
+  customDomain: ISnippetsParams['customDomain'] = DEFAULT_DOMAIN
 ) => {
   let params = ``
   if (environment) {
-    const { gtm_auth, gtm_preview } = environment
+    const {gtm_auth, gtm_preview} = environment
     params = `+"&gtm_auth=${gtm_auth}&gtm_preview=${gtm_preview}&gtm_cookies_win=x"`
   }
   return `
