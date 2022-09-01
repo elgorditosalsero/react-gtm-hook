@@ -53,16 +53,10 @@ function GTMProvider({ state, children }: GTMHookProviderProps): JSX.Element {
   const [store, dispatch] = useReducer(dataReducer, { ...initialState, ...state })
 
   useEffect(() => {
-    if (!state || state.injectScript == false) 
-      return;
-    const mergedState = {...store, ...state};
-    initGTM({
-      dataLayer: mergedState.dataLayer,
-      dataLayerName: mergedState.dataLayerName,
-      environment: mergedState.environment,
-      nonce: mergedState.nonce,
-      id: mergedState.id
-    })
+    if (!state || state.injectScript == false) return
+    const mergedState = { ...store, ...state }
+
+    initGTM(mergedState)
   }, [JSON.stringify(state)])
 
   return (

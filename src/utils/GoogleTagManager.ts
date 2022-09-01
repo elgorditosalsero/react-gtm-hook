@@ -9,7 +9,7 @@ const setupGTM = (params: ISnippetsParams): ISetupGTM => {
   const getDataLayerScript = (): HTMLElement => {
     const dataLayerScript = document.createElement('script')
     if (params.nonce) {
-      dataLayerScript.setAttribute("nonce", params.nonce);
+      dataLayerScript.setAttribute('nonce', params.nonce)
     }
     dataLayerScript.innerHTML = getDataLayerSnippet(params.dataLayer, params.dataLayerName)
     return dataLayerScript
@@ -17,16 +17,16 @@ const setupGTM = (params: ISnippetsParams): ISetupGTM => {
 
   const getNoScript = (): HTMLElement => {
     const noScript = document.createElement('noscript')
-    noScript.innerHTML = getIframeSnippet(params.id, params.environment)
+    noScript.innerHTML = getIframeSnippet(params.id, params.environment, params.customDomain)
     return noScript
   }
 
   const getScript = (): HTMLElement => {
     const script = document.createElement('script')
     if (params.nonce) {
-      script.setAttribute("nonce", params.nonce);
+      script.setAttribute('nonce', params.nonce)
     }
-    script.innerHTML = getGTMScript(params.dataLayerName, params.id, params.environment)
+    script.innerHTML = getGTMScript(params.dataLayerName, params.id, params.environment, params.customDomain)
     return script
   }
 
@@ -45,13 +45,16 @@ const setupGTM = (params: ISnippetsParams): ISetupGTM => {
  * @param nonce - Server-generated nonce
  * @param id - The ID of the GTM
  */
-export const initGTM = ({ dataLayer, dataLayerName, environment, nonce, id }: ISnippetsParams): void => {
+export const initGTM = ({ dataLayer, dataLayerName, environment, nonce, id, customDomain }: ISnippetsParams): void => {
+  console.log('CUSTOOOOM DOMAIN', customDomain)
+
   const gtm = setupGTM({
     dataLayer,
     dataLayerName,
     environment,
     nonce,
-    id
+    id,
+    customDomain
   })
 
   const dataLayerScript = gtm.getDataLayerScript()
@@ -70,8 +73,8 @@ export const initGTM = ({ dataLayer, dataLayerName, environment, nonce, id }: IS
  */
 export const sendToGTM = ({ dataLayerName, data }: ISendToGTM): void => {
   if (window[dataLayerName]) {
-  window[dataLayerName].push(data);
+    window[dataLayerName].push(data)
   } else {
-    console.warn(`dataLayer ${dataLayerName} does not exist, has script be initialized`);
+    console.warn(`dataLayer ${dataLayerName} does not exist, has script be initialized`)
   }
 }
