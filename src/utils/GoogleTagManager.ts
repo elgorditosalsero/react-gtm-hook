@@ -46,8 +46,6 @@ const setupGTM = (params: ISnippetsParams): ISetupGTM => {
  * @param id - The ID of the GTM
  */
 export const initGTM = ({ dataLayer, dataLayerName, environment, nonce, id, customDomain }: ISnippetsParams): void => {
-  console.log('CUSTOOOOM DOMAIN', customDomain)
-
   const gtm = setupGTM({
     dataLayer,
     dataLayerName,
