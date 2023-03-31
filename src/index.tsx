@@ -39,7 +39,7 @@ export const initialState: ISnippetsParams = {
  * The context
  */
 export const GTMContext = createContext<ISnippetsParams | undefined>(initialState)
-export const GTMContextDispatch = createContext<any | undefined>(undefined)
+export const GTMContextDispatch = createContext<typeof sendToGTM | undefined>(undefined)
 
 function dataReducer(state: ISnippetsParams, data: any) {
   sendToGTM({ data, dataLayerName: state?.dataLayerName! })
