@@ -1,6 +1,7 @@
 import {ICustomEnvironmentParams, IDataLayer, ISnippets, ISnippetsParams} from '../models/GoogleTagManager'
 
 export const DEFAULT_DOMAIN = 'https://www.googletagmanager.com'
+export const DEFAULT_SCRIPT_NAME = 'gtm.js'
 
 /**
  * Function to get and set dataLayer
@@ -44,7 +45,8 @@ export const getGTMScript = (
   dataLayerName: Pick<ISnippetsParams, 'dataLayerName'>['dataLayerName'],
   id: Pick<ISnippetsParams, 'id'>['id'],
   environment?: ICustomEnvironmentParams,
-  customDomain: ISnippetsParams['customDomain'] = DEFAULT_DOMAIN
+  customDomain: ISnippetsParams['customDomain'] = DEFAULT_DOMAIN,
+  customScriptName: ISnippetsParams['customScriptName'] = DEFAULT_SCRIPT_NAME
 ) => {
   let params = ``
   if (environment) {
@@ -55,7 +57,7 @@ export const getGTMScript = (
     (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
       new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
       j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      '${customDomain}/gtm.js?id='+i+dl${params};f.parentNode.insertBefore(j,f);
+      '${customDomain}/${customScriptName}?id='+i+dl${params};f.parentNode.insertBefore(j,f);
     })(window,document,'script','${dataLayerName}','${id}');
   `
 }
