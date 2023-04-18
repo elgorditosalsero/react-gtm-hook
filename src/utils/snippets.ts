@@ -38,6 +38,7 @@ export const getIframeSnippet = (
  * Function to get the GTM script
  * @param dataLayerName - The name of the dataLayer
  * @param customDomain - Custom domain for gtm
+ * @param customScriptName - Custom script file name for gtm
  * @param environment - The parameters to use a custom environment
  * @param id - The id of the container
  */

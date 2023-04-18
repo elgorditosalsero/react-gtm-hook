@@ -162,7 +162,8 @@ const MyAwesomeComp = () => {
 | environment   | `Object`  | **NO**   | Provide the `gtm_auth` and `gtm_preview` parameters to use a custom GTM environment                                              |
 | nonce         | `String`  | **NO**   | Server generated nonce. see https://developers.google.com/tag-manager/web/csp                                                    |
 | injectScript  | `Boolean` | **NO**   | default(`true`): Decide if the GTM Script is injected, see #30. Also allows for delayed injection by toggling true later in flow |
-| customDomain  | `String`  | **NO**   | default(`https://www.example.com`): Provide customDomain to use a custom GTM domain                                              |
+| customDomain  | `String`  | **NO**   | default(`https://www.googletagmanager.com`): Provide customDomain to use a custom GTM domain                                              |
+| customScriptName  | `String`  | **NO**   | default(`gtm.js`): Provide customScriptName to use custom file name                                              |
 
 ### SentDataToGTM
 
