@@ -40,8 +40,10 @@ export type ISnippetsParams = {
   nonce?: string
   id: string
   injectScript?: boolean
-  /** Defaults to https://www.googletagmanager.com/gtm.js */
+  /** Defaults to https://www.googletagmanager.com */
   customDomain?: string
+  /** Defaults to gtm.js */
+  customScriptName?: string
 }
 
 /**
