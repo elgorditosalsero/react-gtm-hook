@@ -6,3 +6,4 @@ dist
 .idea
 .vsc
 coverage
+example/.parcel-cache
