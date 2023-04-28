@@ -184,7 +184,7 @@ You can see this lib live on the dedicated [site](https://elgorditosalsero-react
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-11-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-12-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -208,6 +208,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="http://simonsmith.io/"><img src="https://avatars.githubusercontent.com/u/360703?v=4?s=100" width="100px;" alt="Simon Smith"/><br /><sub><b>Simon Smith</b></sub></a><br /><a href="https://github.com/elgorditosalsero/react-gtm-hook/commits?author=simonsmith" title="Documentation">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/listiani13"><img src="https://avatars.githubusercontent.com/u/24470609?v=4?s=100" width="100px;" alt="Listiani"/><br /><sub><b>Listiani</b></sub></a><br /><a href="https://github.com/elgorditosalsero/react-gtm-hook/commits?author=listiani13" title="Code">💻</a> <a href="https://github.com/elgorditosalsero/react-gtm-hook/commits?author=listiani13" title="Documentation">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/pkulcsarnr"><img src="https://avatars.githubusercontent.com/u/84968286?v=4?s=100" width="100px;" alt="pkulcsarnr"/><br /><sub><b>pkulcsarnr</b></sub></a><br /><a href="https://github.com/elgorditosalsero/react-gtm-hook/commits?author=pkulcsarnr" title="Code">💻</a> <a href="https://github.com/elgorditosalsero/react-gtm-hook/commits?author=pkulcsarnr" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/sin-to-jin"><img src="https://avatars.githubusercontent.com/u/5368888?v=4?s=100" width="100px;" alt="sin"/><br /><sub><b>sin</b></sub></a><br /><a href="https://github.com/elgorditosalsero/react-gtm-hook/commits?author=sin-to-jin" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
