@@ -26,7 +26,7 @@ const setupGTM = (params: ISnippetsParams): ISetupGTM => {
     if (params.nonce) {
       script.setAttribute('nonce', params.nonce)
     }
-    script.innerHTML = getGTMScript(params.dataLayerName, params.id, params.environment, params.customDomain)
+    script.innerHTML = getGTMScript(params.dataLayerName, params.id, params.environment, params.customDomain, params.customScriptName)
     return script
   }
 
@@ -45,14 +45,15 @@ const setupGTM = (params: ISnippetsParams): ISetupGTM => {
  * @param nonce - Server-generated nonce
  * @param id - The ID of the GTM
  */
-export const initGTM = ({ dataLayer, dataLayerName, environment, nonce, id, customDomain }: ISnippetsParams): void => {
+export const initGTM = ({ dataLayer, dataLayerName, environment, nonce, id, customDomain, customScriptName }: ISnippetsParams): void => {
   const gtm = setupGTM({
     dataLayer,
     dataLayerName,
     environment,
     nonce,
     id,
-    customDomain
+    customDomain,
+    customScriptName
   })
 
   const dataLayerScript = gtm.getDataLayerScript()
