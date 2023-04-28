@@ -103,6 +103,25 @@
         "code",
         "doc"
       ]
+    },
+    {
+      "login": "pkulcsarnr",
+      "name": "pkulcsarnr",
+      "avatar_url": "https://avatars.githubusercontent.com/u/84968286?v=4",
+      "profile": "https://github.com/pkulcsarnr",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    },
+    {
+      "login": "sin-to-jin",
+      "name": "sin",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5368888?v=4",
+      "profile": "https://github.com/sin-to-jin",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7

@@ -11,7 +11,7 @@
     "react"
   ],
   "description": "Easily manage the Google Tag Manager via Hook",
-  "version": "2.7.0",
+  "version": "2.7.1",
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/react-gtm-hook.esm.js",
@@ -39,6 +39,7 @@
     "all-contributors-cli": "^6.20.0",
     "babel-jest": "^27.5.1",
     "babel-plugin-module-resolver": "^4.1.0",
+    "eslint-plugin-prettier": "3.4.1",
     "husky": "^7.0.4",
     "prettier": "^2.6.1",
     "react": "^17.0.2",

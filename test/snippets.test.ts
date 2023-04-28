@@ -1,5 +1,5 @@
-import {DEFAULT_DOMAIN, getDataLayerSnippet, getGTMScript, getIframeSnippet} from '../src/utils/snippets'
-import {ISnippetsParams} from '../src/models/GoogleTagManager'
+import { DEFAULT_DOMAIN, getDataLayerSnippet, getGTMScript, getIframeSnippet } from '../src/utils/snippets'
+import { ISnippetsParams } from '../src/models/GoogleTagManager'
 
 describe('Suite of snippets functions', () => {
   describe('Suite of getDataLayerSnippet', () => {
@@ -7,7 +7,7 @@ describe('Suite of snippets functions', () => {
     let dataLayerName: string
 
     beforeEach(() => {
-      dataLayer = {user: 'testUser'}
+      dataLayer = { user: 'testUser' }
       dataLayerName = 'customDataLayer'
     })
 
@@ -35,12 +35,12 @@ describe('Suite of snippets functions', () => {
     let params: ISnippetsParams
 
     beforeEach(() => {
-      params = {id: 'GTM-custom-name'}
+      params = { id: 'GTM-custom-name' }
     })
 
     it('should return the script with the default dataLayerName', () => {
       const customDataLayerName = 'customDL'
-      params = {...params, dataLayerName: customDataLayerName}
+      params = { ...params, dataLayerName: customDataLayerName }
 
       const gtmSnippet = getGTMScript(params.dataLayerName, params.id)
 
@@ -54,7 +54,7 @@ describe('Suite of snippets functions', () => {
     it('should return the script with the custom domain', () => {
       const customDomain = 'https://www.example.com'
       const customDataLayerName = 'customDL'
-      params = {...params, dataLayerName: customDataLayerName, customDomain: customDomain}
+      params = { ...params, dataLayerName: customDataLayerName, customDomain: customDomain }
 
       const gtmSnippet = getGTMScript(params.dataLayerName, params.id, undefined, params.customDomain)
 
@@ -92,7 +92,7 @@ describe('Suite of snippets functions', () => {
     let params: ISnippetsParams
 
     beforeEach(() => {
-      params = {id: 'GTM-iframe'}
+      params = { id: 'GTM-iframe' }
     })
 
     it('should return the iframe snippet with the passed id', () => {

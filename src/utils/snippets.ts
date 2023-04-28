@@ -1,4 +1,4 @@
-import {ICustomEnvironmentParams, IDataLayer, ISnippets, ISnippetsParams} from '../models/GoogleTagManager'
+import { ICustomEnvironmentParams, IDataLayer, ISnippets, ISnippetsParams } from '../models/GoogleTagManager'
 
 export const DEFAULT_DOMAIN = 'https://www.googletagmanager.com'
 export const DEFAULT_SCRIPT_NAME = 'gtm.js'
@@ -28,7 +28,7 @@ export const getIframeSnippet = (
 ) => {
   let params = ``
   if (environment) {
-    const {gtm_auth, gtm_preview} = environment
+    const { gtm_auth, gtm_preview } = environment
     params = `&gtm_auth=${gtm_auth}&gtm_preview=${gtm_preview}&gtm_cookies_win=x`
   }
   return `<iframe src="${customDomain}/ns.html?id=${id}${params}" height="0" width="0" style="display:none;visibility:hidden" id="tag-manager"></iframe>`
@@ -51,7 +51,7 @@ export const getGTMScript = (
 ) => {
   let params = ``
   if (environment) {
-    const {gtm_auth, gtm_preview} = environment
+    const { gtm_auth, gtm_preview } = environment
     params = `+"&gtm_auth=${gtm_auth}&gtm_preview=${gtm_preview}&gtm_cookies_win=x"`
   }
   return `
