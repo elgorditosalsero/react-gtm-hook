@@ -60,5 +60,5 @@ export type ISetupGTM = {
  */
 export type ISendToGTM = {
   dataLayerName: string
-  data: Object
+  data: object
 }

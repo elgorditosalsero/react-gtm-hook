@@ -1,6 +1,6 @@
 import React, { Context, ReactNode, createContext, useEffect, useContext, useReducer } from 'react'
 
-import { ISnippetsParams } from './models/GoogleTagManager'
+import { ISendToGTM, ISnippetsParams } from './models/GoogleTagManager'
 import { initGTM, sendToGTM } from './utils/GoogleTagManager'
 
 declare global {
@@ -39,7 +39,7 @@ export const initialState: ISnippetsParams = {
  * The context
  */
 export const GTMContext = createContext<ISnippetsParams | undefined>(initialState)
-export const GTMContextDispatch = createContext<typeof sendToGTM | undefined>(undefined)
+export const GTMContextDispatch = createContext<((data: ISendToGTM['data']) => void) | undefined>(undefined)
 
 function dataReducer(state: ISnippetsParams, data: any) {
   sendToGTM({ data, dataLayerName: state?.dataLayerName! })
