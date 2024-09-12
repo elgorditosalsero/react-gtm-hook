@@ -33,16 +33,23 @@ export type ICustomEnvironmentParams = {
 /**
  * The shape of the GTM Snippets params
  */
+ 
 export type ISnippetsParams = {
+  /** The data layer object to be used */
   dataLayer?: Pick<IDataLayer, 'dataLayer'>['dataLayer']
+  /** The name of the data layer variable */
   dataLayerName?: Pick<IDataLayer, 'dataLayerName'>['dataLayerName']
+  /** Custom environment parameters */
   environment?: ICustomEnvironmentParams
+  /** Nonce attribute for the script tag */
   nonce?: string
+  /** Google Tag Manager container ID */
   id: string
+  /** Whether to inject the GTM script. Defaults to true */
   injectScript?: boolean
-  /** Defaults to https://www.googletagmanager.com */
+  /** Custom domain for the GTM script. Defaults to https://www.googletagmanager.com */
   customDomain?: string
-  /** Defaults to gtm.js */
+  /** Custom script name. Defaults to gtm.js */
   customScriptName?: string
 }
 

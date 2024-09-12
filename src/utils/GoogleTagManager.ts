@@ -45,38 +45,38 @@ const setupGTM = (params: ISnippetsParams): ISetupGTM => {
 
 /**
  * Function to init the GTM
- * @param dataLayer - The dataLayer
- * @param dataLayerName - The dataLayer name
- * @param environment - Specify the custom environment to use
- * @param nonce - Server-generated nonce
- * @param id - The ID of the GTM
+ * @param config - The shape of the GTM Snippets params
  */
-export const initGTM = ({
-  dataLayer,
-  dataLayerName,
-  environment,
-  nonce,
-  id,
-  customDomain,
-  customScriptName
-}: ISnippetsParams): void => {
-  const gtm = setupGTM({
-    dataLayer,
-    dataLayerName,
-    environment,
-    nonce,
-    id,
-    customDomain,
-    customScriptName
-  })
+export const initGTM = (config: ISnippetsParams): void => {
+  const gtm = setupGTM(config)
 
-  const dataLayerScript = gtm.getDataLayerScript()
-  const script = gtm.getScript()
-  const noScript = gtm.getNoScript()
+  const insertScripts = (doc: Document) => {
+    try {
+      // Remove existing GTM scripts if they exist
+      ['script[data-gtm-data-layer]', 'script[data-gtm-script]', 'noscript[data-gtm-noscript]'].forEach(selector => {
+        const existingElement = doc.querySelector(selector);
+        if (existingElement) existingElement.remove();
+      });
 
-  document.head.insertBefore(dataLayerScript, document.head.childNodes[0])
-  document.head.insertBefore(script, document.head.childNodes[1])
-  document.body.insertBefore(noScript, document.body.childNodes[0])
+      const dataLayerScript = gtm.getDataLayerScript();
+      const script = gtm.getScript();
+      const noScript = gtm.getNoScript();
+
+      doc.head.insertBefore(dataLayerScript, doc.head.childNodes[0]);
+      doc.head.insertBefore(script, doc.head.childNodes[1]);
+      doc.body.insertBefore(noScript, doc.body.childNodes[0]);
+
+      // Add data attributes to identify the scripts
+      dataLayerScript.setAttribute('data-gtm-data-layer', '');
+      script.setAttribute('data-gtm-script', '');
+      noScript.setAttribute('data-gtm-noscript', '');
+
+    } catch (error) {
+      console.error('Error initializing GTM:', error);
+    }
+  };
+
+  insertScripts(document);
 }
 
 /**
